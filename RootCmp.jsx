@@ -1,5 +1,7 @@
 const { useState } = React
+import { About } from './cmps/About.jsx'
 import { Home } from './cmps/Home.jsx'
+import { BookIndex } from './cmps/BookIndex.jsx'
 
 export function App() {
 
