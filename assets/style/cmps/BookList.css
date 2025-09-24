@@ -1,8 +1,10 @@
 .book-list {
-    list-style: none;
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
     gap: 15px;
+
+    transition: .4s;
+    list-style: none;
 }
 
 .book-list li {
@@ -10,9 +12,13 @@
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
+
+
+    transition: .4s;
     padding-bottom: 5px;
-    background-color: var(--clr1bg);
-    border-radius: 8px;
+    background-color: var(--clr1);
+    /* border: 2px solid var(--clr1); */
+    border-radius: .6em;
     --animate-duration: 0.4s;
 }
 

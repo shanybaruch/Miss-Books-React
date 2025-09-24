@@ -44,6 +44,10 @@ li {
   cursor: pointer;
 }
 
+ul {
+  padding: 0;
+}
+
 .flash-msg {
   width: max-content;
   background-color: rgb(255, 215, 255);
