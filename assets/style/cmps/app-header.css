@@ -1,0 +1,34 @@
+.app-header {
+  background-color: transparent;
+  color: var(--gray3);
+  font-size: 1.1rem;
+  border-bottom: 2px solid var(--clr1);
+  
+  .title {
+    font-size: 1.4rem;
+    text-align: center;
+    width: 5em;
+  }
+
+  .nav-menu {
+    li {
+      text-align: center;
+      width: 8em;
+    }
+  }
+
+  h1 {
+    padding-inline: .5em;
+    padding-block: .6em;
+
+    &:hover {
+      border-inline: 2px solid var(--clr1);
+    }
+  }
+}
+
+@media(max-width: 720px) {
+  /* .app-header {
+    color: var(--gray1);
+  } */
+}
