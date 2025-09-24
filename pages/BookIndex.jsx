@@ -18,7 +18,7 @@ export function BookIndex() {
     
     if (!books) return <div>Loading..</div>
     return (
-        <section>
+        <section className="book-index">
             <h2>Books</h2>
             <BookList books={books} />
         </section>
