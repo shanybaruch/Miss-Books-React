@@ -1,28 +1,26 @@
 .app-header {
   background-color: transparent;
   color: var(--gray3);
-  font-size: 1.1rem;
+  font-size: 1.2rem;
   border-bottom: 2px solid var(--clr1);
-  
+
   .title {
     font-size: 1.4rem;
     text-align: center;
     width: 5em;
+    font-weight: 400;
   }
 
   .nav-menu {
-    li {
+    a {
+      font-family: 'Edu VIC WA NT Beginner', cursive;
       text-align: center;
       width: 8em;
-    }
-  }
-
-  h1 {
-    padding-inline: .5em;
-    padding-block: .6em;
-
-    &:hover {
-      border-inline: 2px solid var(--clr1);
+      padding-block: 1.2em;
+    
+      &:hover {
+        border-inline: 2px solid var(--clr1);
+      }
     }
   }
 }

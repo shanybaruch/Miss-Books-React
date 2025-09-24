@@ -8,7 +8,7 @@ export function App() {
     return (
         <section className="app grid">
             <header className="app-header grid">
-                <h1 className='title'>My App</h1>
+                <h1 className='title'>Miss Books</h1>
                 <section className='nav-menu grid'>
                     <a onClick={() => setPage('home')}>Home</a>
                     <a onClick={() => setPage('about')}>About Us</a>
