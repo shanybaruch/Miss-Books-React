@@ -1,7 +1,7 @@
 const { useState } = React
-import { About } from './cmps/About.jsx'
-import { Home } from './cmps/Home.jsx'
-import { BookIndex } from './cmps/BookIndex.jsx'
+import { About } from './pages/About.jsx'
+import { Home } from './pages/Home.jsx'
+import { BookIndex } from './pages/BookIndex.jsx'
 
 export function App() {
 
