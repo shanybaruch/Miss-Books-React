@@ -8,6 +8,8 @@ export function BookIndex() {
     const [books, setBooks] = useState(null)
 
     useEffect(() => {
+        console.log('mounting');
+        
         bookService.query()
             .then(setBooks)
             .catch(err => console.log('err:', err))
@@ -15,6 +17,7 @@ export function BookIndex() {
 
 
 
+    console.log('render')
     
     if (!books) return <div>Loading..</div>
     return (
