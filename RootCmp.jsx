@@ -1,18 +1,25 @@
+const { useState } = React
 import { Home } from './cmps/Home.jsx'
 
 export function App() {
+
+    const [page, setPage] = useState('home')
+
     return (
         <section className="app grid">
             <header className="app-header grid">
                 <h1 className='title'>My App</h1>
                 <section className='nav-menu grid'>
-                    <li> <h1>Home</h1> </li>
-                    <li> <h1>About Us</h1> </li>
-                    <li> <h1>Books</h1> </li>
+                    <a onClick={() => setPage('home')}>Home</a>
+                    <a onClick={() => setPage('about')}>About Us</a>
+                    <a onClick={() => setPage('book')}>Books</a>
                 </section>
             </header>
+            
             <main class="main-layout">
-                <Home />
+                {page === 'home' && <Home />}
+                {page === 'about' && <About />}
+                {page === 'book' && <BookIndex />}
             </main>
         </section>
     )
