@@ -8,7 +8,18 @@
 @import 'base/layout.css';
 @import 'base/forms.css';
 
+/* Pages */
+@import url('pages/About.css');
+@import url('pages/Home.css');
+@import url('pages/BookIndex.css');
+@import url('pages/BookDetails.css');
+@import url('pages/BookEdit.css');
+
+
 /* Components */
 @import 'cmps/app-header.css';
 @import 'cmps/user-msg.css';
 @import url('cmps/main-layout.css');
+@import url('cmps/BookFilter.css');
+@import url('cmps/BookList.css');
+@import url('cmps/bookPreview.css');
