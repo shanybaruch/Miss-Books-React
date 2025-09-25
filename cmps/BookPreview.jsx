@@ -7,7 +7,7 @@ export function BookPreview({ book }) {
     return (
         <article className="book-preview">
             <h3 className="bold">{title}</h3>
-            <section>Price: {price}₪</section>
+            <section>{price}₪</section>
             <img src={`../assets/img/${title}.jpg`} alt="Book Image" />
         </article>
     )
