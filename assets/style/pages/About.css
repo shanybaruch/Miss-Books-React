@@ -1,0 +1,10 @@
+.about {
+    margin: .5em auto;
+    padding-inline: 2em;
+    border-inline: 2px solid var(--clr1);
+    width: 75vw;
+    p {
+        font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        padding-bottom: .5em;
+    }
+}

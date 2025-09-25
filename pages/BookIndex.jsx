@@ -36,7 +36,7 @@ export function BookIndex() {
     if (!books) return <h1>Loading..</h1>
     return (
         <section className="book-index">
-            <h2>Books</h2>
+            {/* <h2>Books</h2> */}
             {selectedBookId
                 ? <BookDetails
                     bookId={selectedBookId}
