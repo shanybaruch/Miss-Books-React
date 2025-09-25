@@ -18,7 +18,7 @@ export function App() {
                 </section>
             </header>
             
-            <main class="main-layout">
+            <main className="main-layout">
                 {page === 'home' && <Home />}
                 {page === 'about' && <About />}
                 {page === 'book' && <BookIndex />}

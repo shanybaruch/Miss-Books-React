@@ -3,15 +3,15 @@ import { storageService } from './async-storage.service.js'
 
 const BOOK_KEY = 'bookDB'
 var gFilterBy = { txt: '', minPrice: 0, onSale: false }
-_createbooks()
+_createBooks()
 
 export const bookService = {
     query,
     get,
     remove,
     save,
-    getEmptybook,
-    getNextbookId,
+    getEmptyBook,
+    getNextBookId,
     getFilterBy,
     setFilterBy
 }
@@ -49,7 +49,7 @@ function save(book) {
     }
 }
 
-function getEmptybook(title = '', price = 100) {
+function getEmptyBook(title = '', price = 100) {
     return { id: '', title, price }
 }
 
@@ -63,7 +63,7 @@ function setFilterBy(filterBy = {}) {
     return gFilterBy
 }
 
-function getNextbookId(bookId) {
+function getNextBookId(bookId) {
     return storageService.query(BOOK_KEY)
         .then(books => {
             let nextbookIdx = books.findIndex(book => book.id === bookId) + 1
@@ -72,20 +72,26 @@ function getNextbookId(bookId) {
         })
 }
 
-function _createbooks() {
+function _createBooks() {
     let books = utilService.loadFromStorage(BOOK_KEY)
     if (!books || !books.length) {
         books = []
-        books.push(_createbook('Gwent', 300))
-        books.push(_createbook('Between here and gone', 120))
-        books.push(_createbook('Magic lantern', 100))
-        books.push(_createbook('Its just a dog', 150))
+        books.push(_createBook('Gwent', 300))
+        books.push(_createBook('Between here and gone', 120))
+        books.push(_createBook('Magic lantern', 100))
+        books.push(_createBook('Its just a dog', 150))
+        books.push(_createBook('Unbored', 250))
+        books.push(_createBook('Book title', 200))
+        books.push(_createBook('The sith empire', 200))
+        books.push(_createBook('The ode less travelled', 100))
+        books.push(_createBook('Samantha james', 220))
+        books.push(_createBook('The rise of the russian empire', 150))
         utilService.saveToStorage(BOOK_KEY, books)
     }
 }
 
-function _createbook(title, price = 250) {
-    const book = getEmptybook(title, price)
+function _createBook(title, price = 250) {
+    const book = getEmptyBook(title, price)
     book.id = utilService.makeId()
     return book
 }

@@ -3,7 +3,7 @@ import { bookService } from "../services/book.service.js";
 const { useState, useEffect } = React
 
 export function BookDetails({ bookId, onBack = () => {} }) {
-    console.log('Book id - details: ', bookId);
+    // console.log('Book id - details: ', bookId);
 
     const [book, setBook] = useState(null)
 

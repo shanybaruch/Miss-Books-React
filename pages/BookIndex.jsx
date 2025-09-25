@@ -28,7 +28,7 @@ export function BookIndex() {
             .catch(err => console.log('err:', err))
     }
 
-    function onSelectCarId(bookId) {
+    function onSelectBookId(bookId) {
         setselectedBookId(bookId)
     }
 
@@ -45,7 +45,7 @@ export function BookIndex() {
                 : <BookList
                     books={books}
                     onRemoveBook={onRemoveBook}
-                    onSelectCarId={onSelectCarId}
+                    onSelectBookId={onSelectBookId}
                 />
             }
         </section>
