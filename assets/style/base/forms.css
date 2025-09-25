@@ -1,7 +1,7 @@
 button {
     font-weight: bold;
     font-size: 0.7rem;
-    background-color: var(--clr2);
+    background-color: var(--clr-light);
     cursor: pointer;
     margin: .5em;
     border: 0;
@@ -14,7 +14,6 @@ button {
 button:hover {
     background-color: var(--gray3);
     color: var(--gray1);
-    /* transition: .3s; */
 }
 
 input:focus {

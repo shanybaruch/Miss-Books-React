@@ -1,6 +1,7 @@
 :root {
   --clr1: rgb(255, 214, 241);
-  --clr2: rgb(246, 246, 246);
+  --clr2: rgb(255, 232, 247);
+  --clr-light: white;
 
   --clr1bg: rgb(153, 166, 149);
   --clr1bg-light: rgb(205, 221, 200);
