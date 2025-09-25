@@ -7,7 +7,7 @@ const { useState, useEffect } = React
 export function BookIndex() {
 
     const [books, setBooks] = useState(null)
-    const [selectedCarId, setselectedCarId] = useState(null)
+    const [selectedBookId, setselectedBookId] = useState(null)
 
     useEffect(() => {
         loadBooks()
@@ -29,7 +29,7 @@ export function BookIndex() {
     }
 
     function onSelectCarId(bookId) {
-        setselectedCarId(bookId)
+        setselectedBookId(bookId)
     }
 
     // console.log('render')
@@ -37,10 +37,10 @@ export function BookIndex() {
     return (
         <section className="book-index">
             <h2>Books</h2>
-            {selectedCarId
+            {selectedBookId
                 ? <BookDetails
-                    bookId={selectedCarId}
-                    onBack={() => setselectedCarId(null)}
+                    bookId={selectedBookId}
+                    onBack={() => setselectedBookId(null)}
                 />
                 : <BookList
                     books={books}
