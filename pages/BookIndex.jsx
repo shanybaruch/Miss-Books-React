@@ -20,7 +20,7 @@ export function BookIndex() {
     }
 
     function onRemoveBook(bookId) {
-        console.log('Removing - ', bookId)
+        // console.log('Removing - ', bookId)
         bookService.remove(bookId)
             .then(() => {
                 setBooks(books => books.filter(book => book.id !== bookId))
@@ -39,7 +39,9 @@ export function BookIndex() {
             <h2>Books</h2>
             {selectedCarId
                 ? <BookDetails
-                    bookId={selectedCarId} />
+                    bookId={selectedCarId}
+                    onBack={() => setselectedCarId(null)}
+                />
                 : <BookList
                     books={books}
                     onRemoveBook={onRemoveBook}
