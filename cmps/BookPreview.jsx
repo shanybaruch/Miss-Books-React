@@ -1,13 +1,14 @@
 
-export function BookPreview({ book, idx }) {
+export function BookPreview({ book }) {
 
-    const { title, price } = book    
-
+    const { title, price } = book   
+    
+    
     return (
         <article className="book-preview">
-            <h3>{title}</h3>
-            <h4>Price: {price}</h4>
-            <img src={`../assets/img/${idx + 1}.jpg`} alt="Book Image" />
+            <h3 className="bold">{title}</h3>
+            <section>Price: {price}₪</section>
+            <img src={`../assets/img/${title}.jpg`} alt="Book Image" />
         </article>
     )
 }

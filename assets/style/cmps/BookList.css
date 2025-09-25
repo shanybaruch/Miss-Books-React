@@ -1,7 +1,8 @@
 .book-list {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-    gap: 15px;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 20px;
+    justify-content: center;
 
     transition: .4s;
     list-style: none;
@@ -10,9 +11,7 @@
 .book-list li {
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
     align-items: center;
-
 
     transition: .4s;
     padding-bottom: 5px;

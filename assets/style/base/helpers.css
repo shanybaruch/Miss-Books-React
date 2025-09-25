@@ -32,6 +32,10 @@
     display: grid;
 }
 
+.bold {
+    font-weight: 600;
+}
+
 /* text helpers */
 
 .colored-text {
