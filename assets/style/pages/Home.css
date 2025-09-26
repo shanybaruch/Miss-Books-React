@@ -1,3 +1,28 @@
-.home img {
-    width: 100%;
+.home {
+    .welcome {
+        margin-top: 1.5em;
+        /* text-align: center; */
+        font-size: 3em;
+        font-weight: 200;
+        width: max-content;
+        padding-inline: 1em;
+        border-inline: 2px solid var(--clr1);
+    }
+
+    .title-logo {
+        /* text-align: center; */
+        font-size: 5em;
+        font-weight: 200;
+        margin: auto;
+        width: max-content;
+        padding-inline: .6em;
+        padding-block: .3em;
+        margin-top: .2em;
+        border-block: 3px solid var(--clr1);
+        border-radius: 5em;
+    }
+
+    img {
+        width: 100%;
+    }
 }

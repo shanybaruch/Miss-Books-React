@@ -2,7 +2,7 @@
   background-color: transparent;
   color: var(--gray3);
   font-size: 1.2rem;
-  border-bottom: 2px solid var(--clr1);
+  /* border-bottom: 2px solid var(--clr1); */
 
   .title {
     font-size: 1.4rem;
