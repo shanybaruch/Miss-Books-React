@@ -31,6 +31,7 @@ function query(gFilterBy = {}) {
             if (gFilterBy.onSale) {
                 books = books.filter(book => book.onSale === gFilterBy.onSale)
             }
+            // console.log('books:',books);
             return books
         })
 }
@@ -51,8 +52,8 @@ function save(book) {
     }
 }
 
-function getEmptyBook(title = '', price = 0) {
-    return { id: '', title: '', price: 0, }
+function getEmptyBook(title, price) {
+    return { id: '', title, price, }
     // onSale: false ,pageCount: Infinity,
 }
 
@@ -89,12 +90,14 @@ function _createBooks() {
         books.push(_createBook('The ode less travelled', 100))
         books.push(_createBook('Samantha james', 220))
         books.push(_createBook('The rise of the russian empire', 150))
-        utilService.saveToStorage(BOOK_KEY, books)
+        utilService.saveToStorage(BOOK_KEY, books)        
     }
 }
 
 function _createBook(title, price = 250) {
+    // console.log('title: ',title, '| price: ', price);
+    
     const book = getEmptyBook(title, price)
-    book.id = utilService.makeId()
+    book.id = utilService.makeId()    
     return book
 }

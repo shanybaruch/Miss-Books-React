@@ -24,15 +24,15 @@ export function BookDetails({ bookId, onBack = () => {} }) {
 
     return (
         <section className="book-details">
-            <h2>book name: {title}</h2>
-            <h2>book price: {price}</h2>
-            <p>
+            <h2>{title}</h2>
+            <p className="description">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit.
                 Eaque porro, delectus suscipit illum qui laboriosam voluptates
                 unde, nobis omnis dolore, reiciendis quos. Asperiores modi
                 placeat quod assumenda ipsa suscipit nobis.
             </p>
             <img src={`../assets/img/${title}.jpg`} alt="Book Image" />
+            <p className="price">{price}₪</p>
             <button onClick={onBack}>Back</button>
 
         </section>

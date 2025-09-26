@@ -3,7 +3,7 @@ import { BookList } from "../cmps/BookList.jsx"
 import { BookDetails } from "./BookDetails.jsx"
 import { BookFilter } from "../cmps/BookFilter.jsx"
 
-const { useState, useEffect,Fragment } = React
+const { useState, useEffect, Fragment } = React
 
 export function BookIndex() {
 
@@ -37,6 +37,8 @@ export function BookIndex() {
         setFilterBy(prevFilter => ({ ...prevFilter, ...newFilterBy }))
     }
 
+    
+    // console.log('books: ',books);
     // console.log('render')
     if (!books) return <h1>Loading..</h1>
     return (
