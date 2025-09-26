@@ -1,6 +1,8 @@
 
 export function BookPreview({ book }) {
 
+    console.log('book: ',book);
+    
     const { title, price } = book   
     
     

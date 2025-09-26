@@ -19,7 +19,7 @@
     background-color: var(--clr2);
     /* border: 2px solid var(--clr1); */
     /* box-shadow: 0 1px 4px 2px var(--clr1); */
-    border-radius: .6em;
+    border-radius: .3em;
     --animate-duration: 0.4s;
 }
 

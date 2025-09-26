@@ -2,7 +2,9 @@ import { utilService } from './util.service.js'
 import { storageService } from './async-storage.service.js'
 
 const BOOK_KEY = 'bookDB'
-var gFilterBy = { txt: '', minPrice: 0, onSale: false }
+var gFilterBy = { title: '', minPrice: Infinity, }
+// onSale: false ,pageCount: Infinity,
+
 _createBooks()
 
 export const bookService = {
@@ -24,10 +26,10 @@ function query(gFilterBy = {}) {
                 books = books.filter(book => regex.test(book.title))
             }
             if (gFilterBy.minPrice) {
-                books = books.filter(book => book.listPrice.amount >= gFilterBy.minPrice)
+                books = books.filter(book => book.price <= gFilterBy.minPrice)
             }
             if (gFilterBy.onSale) {
-                books = books.filter(book => book.listPrice.isOnSale === gFilterBy.onSale)
+                books = books.filter(book => book.onSale === gFilterBy.onSale)
             }
             return books
         })
@@ -49,8 +51,9 @@ function save(book) {
     }
 }
 
-function getEmptyBook(title = '', price = 100) {
-    return { id: '', title, price }
+function getEmptyBook(title = '', price = 0) {
+    return { id: '', title: '', price: 0, }
+    // onSale: false ,pageCount: Infinity,
 }
 
 function getFilterBy() {
