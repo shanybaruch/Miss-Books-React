@@ -1,9 +1,9 @@
 const { useState, useEffect } = React
 
-export function BookFilter({ defaultFilter }) {
+export function BookFilter({ defaultFilter, onSetFilterBy }) {
     const [filterByToEdit, setFilterByToEdit] = useState(defaultFilter)
 
-    const { title, minPrice } = filterByToEdit
+    const { title, maxPrice } = filterByToEdit
 
 
     function handleTxtChange(ev) {
@@ -11,14 +11,15 @@ export function BookFilter({ defaultFilter }) {
         setFilterByToEdit(filterBy => ({ ...filterBy, title: value }))
     }
 
-    function handleMinPriceChange(ev) {
+    function handleMaxPriceChange(ev) {
    const value = +ev.target.value
-        setFilterByToEdit(filterBy => ({ ...filterBy, minPrice: value }))
+        setFilterByToEdit(filterBy => ({ ...filterBy, maxPrice: value }))
     }
 
     function onSaveFilter(ev) {
         ev.preventDefault()
-        console.log('filter:', filterByToEdit);  
+        console.log('filter:', filterByToEdit);
+        onSetFilterBy(filterByToEdit)  
     }
 
     return (
@@ -29,8 +30,8 @@ export function BookFilter({ defaultFilter }) {
                 <label htmlFor="txt">Title</label>
                 <input onChange={handleTxtChange} value={title} id="txt" type="text" />
 
-                <label htmlFor="minPrice">Min Price</label>
-                <input onChange={handleMinPriceChange} value={minPrice} id="minPrice" type="number" />
+                <label htmlFor="maxPrice">Max Price</label>
+                <input onChange={handleMaxPriceChange} value={maxPrice} id="maxPrice" type="number" />
 
                 <button>Save</button>
             </form>

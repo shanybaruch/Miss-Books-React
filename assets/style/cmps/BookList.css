@@ -7,12 +7,18 @@
     transition: .4s;
     margin-top: 1.6em;
     list-style: none;
+
+    button {
+        font-size: .68rem;
+        margin-top: 0;
+        padding: .4em;
+    }
 }
 
 .book-list li {
-    display: flex;
-    flex-direction: column;
+    display: grid;
     align-items: center;
+    justify-items: center;
 
     transition: .4s;
     padding-bottom: 5px;

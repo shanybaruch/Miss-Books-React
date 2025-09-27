@@ -9,15 +9,15 @@ export function BookIndex() {
 
     const [books, setBooks] = useState(null)
     const [selectedBookId, setselectedBookId] = useState(null)
-    const [filterBy, setFilterBy] = useState(bookService.getFilterBy())
+    const [filterBy, setFilterBy] = useState(bookService.getDefaultFilter())
 
     useEffect(() => {
         loadBooks()
-    }, [])
+    }, [filterBy])
 
     function loadBooks() {
-        bookService.query()
-            .then(setBooks)
+        bookService.query(filterBy)
+            .then(setBooks)   
             .catch(err => console.log('err:', err))
     }
 

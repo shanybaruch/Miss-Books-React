@@ -2,7 +2,7 @@ import { utilService } from './util.service.js'
 import { storageService } from './async-storage.service.js'
 
 const BOOK_KEY = 'bookDB'
-var gFilterBy = { title: '', minPrice: Infinity, }
+// var filterBy = { title: '', maxPrice: null, }
 // onSale: false ,pageCount: Infinity,
 
 _createBooks()
@@ -15,21 +15,24 @@ export const bookService = {
     getEmptyBook,
     getNextBookId,
     getFilterBy,
-    setFilterBy
+    setFilterBy,
+    getDefaultFilter,
 }
 
-function query(gFilterBy = {}) {
+function query(filterBy = {}) {
+    console.log(filterBy)
+    
     return storageService.query(BOOK_KEY)
         .then(books => {
-            if (gFilterBy.txt) {
-                const regex = new RegExp(gFilterBy.txt, 'i')
+            if (filterBy.title) {
+                const regex = new RegExp(filterBy.title, 'i')
                 books = books.filter(book => regex.test(book.title))
             }
-            if (gFilterBy.minPrice) {
-                books = books.filter(book => book.price <= gFilterBy.minPrice)
+            if (filterBy.maxPrice) {
+                books = books.filter(book => book.price <= filterBy.maxPrice)
             }
-            if (gFilterBy.onSale) {
-                books = books.filter(book => book.onSale === gFilterBy.onSale)
+            if (filterBy.onSale) {
+                books = books.filter(book => book.onSale === filterBy.onSale)
             }
             // console.log('books:',books);
             return books
@@ -52,19 +55,22 @@ function save(book) {
     }
 }
 
-function getEmptyBook(title, price) {
-    return { id: '', title, price, }
-    // onSale: false ,pageCount: Infinity,
+function getEmptyBook(title = '', price = '') {
+    return { title, price, }
+}
+
+function getDefaultFilter() {
+    return { title: '', maxPrice: '', }
 }
 
 function getFilterBy() {
-    return { ...gFilterBy }
+    return { ...filterBy }
 }
 
 function setFilterBy(filterBy = {}) {
-    if (filterBy.txt !== undefined) gFilterBy.txt = filterBy.txt
-    if (filterBy.minPrice !== undefined) gFilterBy.minPrice = filterBy.minPrice
-    return gFilterBy
+    if (filterBy.title !== undefined) filterBy.title = filterBy.title
+    if (filterBy.maxPrice !== undefined) filterBy.maxPrice = filterBy.maxPrice
+    return filterBy
 }
 
 function getNextBookId(bookId) {
