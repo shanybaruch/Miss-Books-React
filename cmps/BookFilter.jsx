@@ -12,7 +12,7 @@ export function BookFilter({ defaultFilter, onSetFilterBy }) {
 
     function handleChange({ target }) {
         const field = target.name
-        const value = target.value
+        let value = target.value
         
         switch (target.type) {
             case 'number':
@@ -35,14 +35,14 @@ export function BookFilter({ defaultFilter, onSetFilterBy }) {
 
     return (
         <section className="book-filter">
-            <h2>Filter Books</h2>
+            {/* <h2>Filter Books</h2> */}
 
             <form onSubmit={onSaveFilter}>
-                <label htmlFor="title">Title</label>
-                <input onChange={handleChange} value={title} id="title" type="text" name="title" />
+                {/* <label htmlFor="title">Title</label> */}
+                <input onChange={handleChange} value={title} id="title" type="text" name="title" placeholder="Book name" />
 
-                <label htmlFor="maxPrice">Max Price</label>
-                <input onChange={handleChange} value={maxPrice || ''} id="maxPrice" type="number" name="maxPrice" />
+                {/* <label htmlFor="maxPrice">Max Price</label> */}
+                <input onChange={handleChange} value={maxPrice || ''} id="maxPrice" type="number" name="maxPrice" placeholder="Max price" min={50} max={300} step={50} />
               
                 {/* <label htmlFor="onSale">On Sale?</label>
                 <input onChange={handleChange} value={maxPrice} id="onSale" type="checkbox" name="onSale" /> */}
