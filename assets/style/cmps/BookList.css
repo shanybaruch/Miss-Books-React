@@ -1,7 +1,7 @@
 .book-list {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-    gap: 30px;
+    grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+    gap: 25px;
     justify-content: center;
 
     transition: .4s;
@@ -20,13 +20,32 @@
     align-items: center;
     justify-items: center;
 
+    position: relative;
+
     transition: .4s;
     padding-bottom: 5px;
     background-color: var(--clr2);
     /* border: 2px solid var(--clr1); */
     /* box-shadow: 0 1px 4px 2px var(--clr1); */
-    border-radius: .3em;
+    border-radius: .2em;
+    padding: 0;
     --animate-duration: 1s;
+
+    .sale {
+        position: absolute;
+        left: -0.5em;
+        top: -0.5em;
+
+        background-color: var(--clr-red);
+        /* background-color: red; */
+        box-shadow: 0 5px 10px var(--clr-light);
+        /* border: 2px solid var(--gray1); */
+        color: var(--clr-light);
+        border-radius: 50%;
+        font-weight: 700;
+        padding: 0.5em;
+        font-family: Arial, Helvetica, sans-serif;
+    }
 }
 
 .book-list li.loading {

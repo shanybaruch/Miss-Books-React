@@ -2,15 +2,23 @@
     display: grid;
     align-items: center;
 
-    h2 {
+    .title {
         color: var(--clr1);
         font-weight: 800;
         font-size: 3em;
-        margin-bottom: .3em;
+        margin-bottom: .1em;
     }
+
+    .subtitle {
+        text-align: center;
+        font-size: 1.3rem;
+        margin-bottom: 1em;
+    }
+
 
     .description {
         font-family: cursive;
+        /* font-size: 0.9rem; */
     }
 
     .price {

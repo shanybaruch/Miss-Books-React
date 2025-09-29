@@ -9,8 +9,7 @@ export function BookDetails({ bookId, onBack = () => {} }) {
 
     useEffect(() => {
         loadBook()
-    }
-        , [])
+    } ,[])
 
     function loadBook() {
         bookService.get(bookId)
@@ -19,20 +18,13 @@ export function BookDetails({ bookId, onBack = () => {} }) {
     }
 
     if (!book) return <h1>Loading Details...</h1>
-
-    const { title, price } = book
-
     return (
         <section className="book-details">
-            <h2>{title}</h2>
-            <p className="description">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Eaque porro, delectus suscipit illum qui laboriosam voluptates
-                unde, nobis omnis dolore, reiciendis quos. Asperiores modi
-                placeat quod assumenda ipsa suscipit nobis.
-            </p>
-            <img src={`../assets/img/${title}.jpg`} alt="Book Image" />
-            <p className="price">{price}₪</p>
+            <h2 className="title">{book.title}</h2>
+            <h3 className="subtitle bold">{book.subtitle}</h3>
+            <p className="description">{book.description}</p>
+            <img src={book.thumbnail} alt="Book Image" />
+            <p className="price">{book.listPrice.amount}₪</p>
             <button onClick={onBack}>Back</button>
 
         </section>
