@@ -1,19 +1,25 @@
-const { useState, useEffect } = React
+import { utilService } from "../services/util.service.js"
+
+const { useState, useEffect, useRef } = React
 
 export function BookFilter({ defaultFilter, onSetFilterBy }) {
 
     const [filterByToEdit, setFilterByToEdit] = useState(defaultFilter)
     const { title, maxPrice } = filterByToEdit
-    // const isValid = title && maxPrice
+    const initialFilterBy = useRef({ ...defaultFilter })
+    console.log(initialFilterBy.current);
+    
+
+    const onSetFilterDebounce = useRef(utilService.debounce(onSetFilterBy, 500))
 
     useEffect(() => {
-        onSetFilterBy(filterByToEdit)
-    },[filterByToEdit])
+        onSetFilterDebounce.current(filterByToEdit)
+    }, [filterByToEdit])
 
     function handleChange({ target }) {
         const field = target.name
         let value = target.value
-        
+
         switch (target.type) {
             case 'number':
             case 'range':
@@ -30,24 +36,27 @@ export function BookFilter({ defaultFilter, onSetFilterBy }) {
     function onSaveFilter(ev) {
         ev.preventDefault()
         console.log('filter:', filterByToEdit);
-        onSetFilterBy(filterByToEdit)  
+        onSetFilterBy(filterByToEdit)
+    }
+
+    function onClearFilter() {        
+        setFilterByToEdit(initialFilterBy.current)
     }
 
     return (
         <section className="book-filter">
-            {/* <h2>Filter Books</h2> */}
-
-            <form onSubmit={onSaveFilter}>
+            <h2>Filter</h2>
+            <form>
                 {/* <label htmlFor="title">Title</label> */}
                 <input onChange={handleChange} value={title} id="title" type="text" name="title" placeholder="Book name" />
 
                 {/* <label htmlFor="maxPrice">Max Price</label> */}
                 <input onChange={handleChange} value={maxPrice || ''} id="maxPrice" type="number" name="maxPrice" placeholder="Max price" min={50} max={300} step={50} />
-              
+
                 {/* <label htmlFor="onSale">On Sale?</label>
                 <input onChange={handleChange} value={maxPrice} id="onSale" type="checkbox" name="onSale" /> */}
 
-                <button>Save</button>
+                <button type="button" onClick={onClearFilter}>Clear</button>
             </form>
 
         </section>

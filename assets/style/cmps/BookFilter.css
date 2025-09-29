@@ -1,4 +1,7 @@
 .book-filter {
+    display: flex;
+    gap: 0.5em;
+
     background-color: var(--clr2);
     width: max-content;
     margin: auto;
