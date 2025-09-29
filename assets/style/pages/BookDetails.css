@@ -1,38 +1,100 @@
 .book-details {
     display: grid;
-    align-items: center;
+    grid-template-columns: 1fr 1fr;
+    align-items: start;
 
-    position: relative;
+    .header {
+        .title {
+            justify-self: start;
 
-    .title {
-        color: var(--clr1);
-        font-weight: 800;
-        font-size: 3em;
-        margin-bottom: .1em;
+            color: var(--clr1);
+            font-weight: 800;
+            font-size: 3em;
+            margin-bottom: .1em;
+        }
+
+        .subtitle {
+            font-size: 1.3rem;
+            margin-bottom: 1em;
+        }
     }
 
-    .subtitle {
-        text-align: center;
-        font-size: 1.3rem;
-        margin-bottom: 1em;
+    .book-price {
+        grid-row: 1 / 4;
+        justify-self: end;
+        align-self: center;
+        
+        position: relative;
+        
+        
+        .price {
+            justify-self: center;
+            
+            margin-top: .5em;
+            font-size: .9rem;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+        }
+        
+        .sale {
+            position: absolute;
+            top: -0.5em;
+            left: -1em;
+            
+            background-color: var(--clr-red);
+            color: var(--clr-light);
+            border-radius: 50%;
+            padding: 0.3em;
+            /* font-weight: 600; */
+            font-size: 1.4rem;
+            text-align: center;
+            font-family: cursive;
+        }
+        
+        img {
+            max-width: 200px;
+            margin-top: .3em;
+        }
     }
 
+    .basic-info {
+        grid-row: 2 / 3;
+    }
+
+    .pages {
+        .level {
+            color: var(--clr-dark);
+            margin-top: 0.5em;
+            font-weight: 800;
+            font-size: 1.2rem;
+            font-family: cursive;
+        }
+
+        .pages-count {
+            grid-row: 2 / 3;
+            grid-column: 1 / 2;
+        }
+    }
+
+    p {
+        font-family: cursive;
+    }
+
+    section p {
+        margin: 0;
+    }
 
     .description {
+        grid-row: 3 / 4;
+        
         font-family: cursive;
         /* font-size: 0.9rem; */
     }
 
-    .price {
-        justify-self: center;
-
-        margin-top: .5em;
-        font-size: .9rem;
-        font-family: Verdana, Geneva, Tahoma, sans-serif;
-    }
-
-    button {
-        justify-self: start;
+    .btn-back {
+        justify-self: end;
+        align-self: end;
+        grid-row: 4 / 5;
+        grid-column: 2 / 3;
 
         font-size: .9rem;
         background-color: var(--clr2);
@@ -43,33 +105,8 @@
             color: var(--gray1);
         }
     }
-
-    .sale {
-        position: absolute;
-        top: 0;
-
-        background-color: var(--clr-red);
-        color: var(--clr-light);
-        border-radius: 50%;
-        padding: 0.3em;
-        /* font-weight: 600; */
-        font-size: 1.4rem;
-        text-align: center;
-        font-family: cursive;
-
-    }
-
-    img {
-        justify-self: center;
-
-        max-width: 200px;
-        display: block;
-        margin-top: .3em;
-    }
 }
 
 .book-details:has(.sale) .price {
-    font-size: 1.1rem;
-    font-weight: 800;
     color: var(--clr-red);
 }
