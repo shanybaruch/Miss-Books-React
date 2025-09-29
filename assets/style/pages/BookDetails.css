@@ -2,6 +2,8 @@
     display: grid;
     align-items: center;
 
+    position: relative;
+
     .title {
         color: var(--clr1);
         font-weight: 800;
@@ -37,17 +39,37 @@
         color: var(--gray3);
 
         &:hover {
-            background-color: var(--clr1-dark);
+            background-color: var(--clr-dark);
             color: var(--gray1);
         }
     }
+
+    .sale {
+        position: absolute;
+        top: 0;
+
+        background-color: var(--clr-red);
+        color: var(--clr-light);
+        border-radius: 50%;
+        padding: 0.3em;
+        /* font-weight: 600; */
+        font-size: 1.4rem;
+        text-align: center;
+        font-family: cursive;
+
+    }
+
+    img {
+        justify-self: center;
+
+        max-width: 200px;
+        display: block;
+        margin-top: .3em;
+    }
 }
 
-
-.book-details img {
-    justify-self: center;
-
-    max-width: 200px;
-    display: block;
-    margin-top: .3em;
+.book-details:has(.sale) .price {
+    font-size: 1.1rem;
+    font-weight: 800;
+    color: var(--clr-red);
 }

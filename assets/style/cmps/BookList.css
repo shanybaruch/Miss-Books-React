@@ -42,9 +42,8 @@
         /* border: 2px solid var(--gray1); */
         color: var(--clr-light);
         border-radius: 50%;
-        font-weight: 700;
-        padding: 0.5em;
-        font-family: Arial, Helvetica, sans-serif;
+        padding: 0.4em;
+        font-family: cursive;
     }
 }
 

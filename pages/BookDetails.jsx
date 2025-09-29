@@ -2,14 +2,14 @@ import { bookService } from "../services/book.service.js";
 
 const { useState, useEffect } = React
 
-export function BookDetails({ bookId, onBack = () => {} }) {
+export function BookDetails({ bookId, onBack = () => { } }) {
     // console.log('Book id - details: ', bookId);
 
     const [book, setBook] = useState(null)
 
     useEffect(() => {
         loadBook()
-    } ,[])
+    }, [])
 
     function loadBook() {
         bookService.get(bookId)
@@ -23,6 +23,7 @@ export function BookDetails({ bookId, onBack = () => {} }) {
             <h2 className="title">{book.title}</h2>
             <h3 className="subtitle bold">{book.subtitle}</h3>
             <p className="description">{book.description}</p>
+            {book.listPrice.isOnSale && <h4 className='sale'>Sale</h4>}
             <img src={book.thumbnail} alt="Book Image" />
             <p className="price">{book.listPrice.amount}₪</p>
             <button onClick={onBack}>Back</button>
