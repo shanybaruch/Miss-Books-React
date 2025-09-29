@@ -15,8 +15,8 @@ export function BookList({ books, onRemoveBook, onSelectBookId }) {
                     {book.listPrice.isOnSale && <h4 className='sale'>Sale</h4>}
                     <BookPreview book={book} />
                     <section>
-                        <button onClick={ev => onRemoveBook(book.id, ev)}>Remove</button>
-                        <button onClick={() => onSelectBookId(book.id)}>Details</button>
+                        <button className="fa-regular fa-trash-can btn-remove" onClick={ev => onRemoveBook(book.id, ev)}></button>
+                        <button className="fa-solid fa-circle-info btn-details" onClick={() => onSelectBookId(book.id)}></button>
                     </section>
                 </li>
             )}

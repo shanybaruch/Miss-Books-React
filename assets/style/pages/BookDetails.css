@@ -17,6 +17,13 @@
             font-size: 1.3rem;
             margin-bottom: 1em;
         }
+
+        .published-date {
+            font-family: 'Edu VIC WA NT Beginner', cursive;
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--clr-dark);
+        }
     }
 
     .book-price {
@@ -25,7 +32,10 @@
         align-self: center;
         
         position: relative;
-        
+
+        .high {
+            color: var(--clr-red);
+        }
         
         .price {
             justify-self: center;
@@ -58,6 +68,14 @@
 
     .basic-info {
         grid-row: 2 / 3;
+
+        .sub {
+            font-weight: 800;
+
+            span {
+                font-weight: 200;
+            }
+        }
     }
 
     .pages {
@@ -83,11 +101,17 @@
         margin: 0;
     }
 
-    .description {
-        grid-row: 3 / 4;
-        
-        font-family: cursive;
-        /* font-size: 0.9rem; */
+    section {
+
+        .title-description {
+            grid-row: 3 / 4;
+            color: var(--clr-dark);
+    
+            font-weight: 700;
+            margin-top: 0.5em;
+            font-family: cursive;
+            font-size: 1.1rem;
+        }
     }
 
     .btn-back {
@@ -105,8 +129,4 @@
             color: var(--gray1);
         }
     }
-}
-
-.book-details:has(.sale) .price {
-    color: var(--clr-red);
 }

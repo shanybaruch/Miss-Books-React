@@ -3,9 +3,9 @@
     padding: 0.3em;
 
     display: grid;
-    align-items: center;
+    grid-auto-flow: row;
 
-    h3 {
+    .title {
         margin-top: .7em;
         text-transform: capitalize;
         color: var(--gray3);
@@ -15,10 +15,10 @@
         font-size: 1.2rem;
     }
 
-    section {
+    .price {
         font-size: .8rem;
         font-weight: 100;
-        margin-bottom: .3em;
+        margin-top: .3em;
         font-family: cursive;
     }
 
@@ -36,5 +36,8 @@
         font-size: .6rem;
         font-weight: 600;
         color: var(--gray2);
+    }
+
+    button {
     }
 }
