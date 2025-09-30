@@ -15,26 +15,19 @@
     justify-items: center;
 
     position: relative;
-
+    --animate-duration: 1s;
     transition: .4s;
+
     padding-bottom: 5px;
     background-color: var(--clr2);
-    /* border: 2px solid var(--clr1); */
-    /* box-shadow: 0 1px 4px 2px var(--clr1); */
     border-radius: .2em;
     padding: 0;
-    --animate-duration: 1s;
-
-    &:hover {
-            opacity: 1;
-            pointer-events: auto;
-        }
 
     .sale {
         position: absolute;
         left: -0.5em;
         top: -0.5em;
-
+        
         background-color: var(--clr-red);
         /* background-color: red; */
         box-shadow: 0 5px 10px var(--clr-light);
@@ -43,29 +36,32 @@
         padding: 0.4em;
         font-family: cursive;
     }
-
-
-    button {
-        font-size: 1rem;
-        margin: 0.5em;
+    
+    &:hover .btn-details,
+    &:hover .btn-remove {
+        opacity: 1;
+        pointer-events: auto;
+    }
+    
+    .btn-details,
+    .btn-remove {
+        font-size: 0.9rem;
         color: var(--gray3);
         padding: 0;
         background-color: inherit;
 
-        &:hover {
-            scale: 1.2;
-            color: inherit;
-        }
-    }
-
-    .btn-details,
-    .btn-remove {
         opacity: 0;
         pointer-events: none;
         transition: opacity 0.3s ease;
-
+        
         position: absolute;
         bottom: -0.4em;
+    
+        &:hover {
+            transition: 0.5s;
+            scale: 1.2;
+            color: inherit;
+        }
     }
 
     .btn-remove {
@@ -75,11 +71,6 @@
     .btn-details {
         left: -0.4em;
     }
-
-    position: relative;
-    display: inline-block;
-    transition: 500ms;
-
 }
 
 .book-list li.loading {
