@@ -4,7 +4,7 @@ const { useState, useEffect, useRef } = React
 
 export function BookFilter({ defaultFilter, onSetFilterBy }) {
 
-    const [filterByToEdit, setFilterByToEdit] = useState(defaultFilter)
+    const [filterByToEdit, setFilterByToEdit] = useState({...defaultFilter})
     const initialFilterBy = useRef({ ...defaultFilter })    
     const onSetFilterDebounce = useRef(utilService.debounce(onSetFilterBy, 500))
 
