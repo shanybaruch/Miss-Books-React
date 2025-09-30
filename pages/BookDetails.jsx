@@ -1,3 +1,4 @@
+import { LongTxt } from "../cmps/LongTxt.jsx";
 import { bookService } from "../services/book.service.js";
 
 const { useState, useEffect } = React
@@ -55,7 +56,7 @@ export function BookDetails({ bookId, onBack = () => { } }) {
 
             <section>
                 <p className="title-description">Description:</p>
-                <p className="description">{book.description}</p>
+                {book.description && <LongTxt txt={book.description} />}
             </section>
 
             <section className="book-price">

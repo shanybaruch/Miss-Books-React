@@ -30,26 +30,26 @@
         grid-row: 1 / 4;
         justify-self: end;
         align-self: center;
-        
+
         position: relative;
 
         .high {
             color: var(--clr-red);
         }
-        
+
         .price {
             justify-self: center;
-            
+
             margin-top: .5em;
             font-size: .9rem;
             font-family: Verdana, Geneva, Tahoma, sans-serif;
         }
-        
+
         .sale {
             position: absolute;
             top: -0.5em;
             left: -1em;
-            
+
             background-color: var(--clr-red);
             color: var(--clr-light);
             border-radius: 50%;
@@ -59,9 +59,9 @@
             text-align: center;
             font-family: cursive;
         }
-        
+
         img {
-            max-width: 200px;
+            max-width: 220px;
             margin-top: .3em;
         }
     }
@@ -97,20 +97,20 @@
         font-family: cursive;
     }
 
-    section p {
-        margin: 0;
-    }
-
     section {
 
         .title-description {
             grid-row: 3 / 4;
             color: var(--clr-dark);
-    
+
             font-weight: 700;
             margin-top: 0.5em;
             font-family: cursive;
             font-size: 1.1rem;
+        }
+
+        p {
+            margin: 0;
         }
     }
 

@@ -10,14 +10,16 @@ export function App() {
     return (
         <section className="app grid">
             <header className="app-header grid">
-                <h1 className='title'>Miss Books</h1>
+                <section className='nav-title'>
+                    <h1 className='title'>Miss Books</h1>
+                </section>
                 <section className='nav-menu grid'>
                     <a onClick={() => setPage('home')}>Home</a>
                     <a onClick={() => setPage('about')}>About Us</a>
                     <a onClick={() => setPage('book')}>Books</a>
                 </section>
             </header>
-            
+
             <main className="main-layout">
                 {page === 'home' && <Home />}
                 {page === 'about' && <About />}

@@ -4,11 +4,17 @@
   font-size: 1.2rem;
   /* border-bottom: 2px solid var(--clr1); */
 
-  .title {
-    font-size: 1.4rem;
-    text-align: center;
-    width: 5em;
-    font-weight: 400;
+  .nav-title {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+
+    .title {
+      font-size: 1.4rem;
+      text-align: center;
+      width: 8em;
+      font-weight: 400;
+      padding-block: 1.2em;
+    }
   }
 
   .nav-menu {
@@ -17,7 +23,7 @@
       text-align: center;
       width: 8em;
       padding-block: 1.2em;
-    
+
       &:hover {
         border-inline: 2px solid var(--clr1);
       }

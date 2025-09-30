@@ -11,14 +11,14 @@ export function LongTxt({ txt, length = 100 }) {
     const textToShow = isShowLong ? txt : (txt.substring(0, length))
     return (
         <section className="long-txt">
-            <h4>
+            <section>
                 {textToShow}
                 {isLongText &&
                     <button onClick={onToggleIsShowLong}>
                         {isShowLong ? ' Less...' : ' More...'}
                     </button>
                 }
-            </h4>
+            </section>
         </section>
     );
 }

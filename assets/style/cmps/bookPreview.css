@@ -3,10 +3,11 @@
     padding: 0.3em;
 
     display: grid;
+    align-self: center;
     grid-auto-flow: row;
+    grid-template-rows: 1fr;
 
     .title {
-        margin-top: .7em;
         text-transform: capitalize;
         color: var(--gray3);
         font-family: cursive;
@@ -28,7 +29,7 @@
         margin-top: .5em;
         margin-bottom: .2em;
         max-width: 100px;
-        border-radius: .2em;
+        border-radius: .1em;
     }
 
     .description {
@@ -36,8 +37,5 @@
         font-size: .6rem;
         font-weight: 600;
         color: var(--gray2);
-    }
-
-    button {
     }
 }
