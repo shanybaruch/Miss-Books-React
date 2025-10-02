@@ -5,7 +5,6 @@ import { BookIndex } from './pages/BookIndex.jsx'
 
 export function App() {
 
-    const [page, setPage] = useState('book')
 
     return (
         <section className="app grid">
@@ -21,9 +20,7 @@ export function App() {
             </header>
 
             <main className="main-layout">
-                {page === 'home' && <Home />}
-                {page === 'about' && <About />}
-                {page === 'book' && <BookIndex />}
+             
             </main>
         </section>
     )
