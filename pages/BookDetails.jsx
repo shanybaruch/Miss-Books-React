@@ -2,20 +2,26 @@ import { LongTxt } from "../cmps/LongTxt.jsx";
 import { bookService } from "../services/book.service.js";
 
 const { useState, useEffect } = React
+const { useParams, useNavigate } = ReactRouterDOM
 
 export function BookDetails({ bookId, onBack = () => { } }) {
     // console.log('Book id - details: ', bookId);
 
     const [book, setBook] = useState(null)
+    const params = useParams()
+    const navigate = useNavigate()
 
     useEffect(() => {
         loadBook()
     }, [])
 
     function loadBook() {
-        bookService.get(bookId)
+        bookService.get(params.bookId)
             .then(setBook)
-            .catch(err => console.log('err:', err))
+            .catch(err => {
+                console.log('err:', err)
+                navigate('/book')
+            })
     }
 
     function getBookDateDiff() {
@@ -23,6 +29,10 @@ export function BookDetails({ bookId, onBack = () => { } }) {
         let currentYear = currentDate.getFullYear();
         let currYearDiff = currentYear - book.publishedDate
         return currYearDiff
+    }
+
+    function onBack() {
+        navigate('/book')
     }
 
     if (!book) return <h1>Loading Details...</h1>

@@ -1,6 +1,7 @@
+const { Link } = ReactRouterDOM
 import { BookPreview } from './BookPreview.jsx';
 
-export function BookList({ books, onRemoveBook, onSelectBookId }) {
+export function BookList({ books, onRemoveBook }) {
 
     return (
         <ul className="book-list container">
@@ -9,7 +10,7 @@ export function BookList({ books, onRemoveBook, onSelectBookId }) {
                     {book.listPrice.isOnSale && <h4 className='sale'>Sale</h4>}
                     <BookPreview book={book} />
                     <button className="fa-regular fa-trash-can btn-remove" onClick={ev => onRemoveBook(book.id, ev)}></button>
-                    <button className="fa-solid fa-circle-info btn-details" onClick={() => onSelectBookId(book.id)}></button>
+                    <button><Link to={`/book/${book.id}`}>details</Link></button>
                 </li>
             )}
         </ul>

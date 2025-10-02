@@ -9,7 +9,6 @@ const { useState, useEffect, Fragment } = React
 export function BookIndex() {
 
     const [books, setBooks] = useState(null)
-    const [selectedBookId, setselectedBookId] = useState(null)
     const [filterBy, setFilterBy] = useState(bookService.getDefaultFilter())
 
     useEffect(() => {
@@ -18,11 +17,11 @@ export function BookIndex() {
 
     function loadBooks() {
         bookService.query(filterBy)
-            .then(setBooks)   
+            .then(setBooks)
             .catch(err => console.log('err:', err))
     }
 
-    function onRemoveBook(bookId, {target}) {
+    function onRemoveBook(bookId, { target }) {
         const elLi = target.closest('li')
         bookService.remove(bookId)
             .then(() => utilService.animateCSS(elLi, 'fadeOut'))
@@ -32,35 +31,19 @@ export function BookIndex() {
             .catch(err => console.log('err:', err))
     }
 
-    function onSelectBookId(bookId) {
-        setselectedBookId(bookId)
-    }
-
     function onSetFilterBy(newFilterBy) {
         setFilterBy(prevFilter => ({ ...prevFilter, ...newFilterBy }))
     }
 
-    
-    // console.log('books: ',books);
-    // console.log('render')
+
     if (!books) return <h1>Loading..</h1>
     return (
         <section className="book-index">
-            {/* <h2>Books</h2> */}
-            {selectedBookId
-                ? <BookDetails
-                    bookId={selectedBookId}
-                    onBack={() => setselectedBookId(null)}
-                />
-                : <Fragment>
-                    <BookFilter onSetFilterBy={onSetFilterBy} defaultFilter={filterBy} />
-                    <BookList
-                        books={books}
-                        onRemoveBook={onRemoveBook}
-                        onSelectBookId={onSelectBookId}
-                    />
-                </Fragment>
-            }
+            <BookFilter onSetFilterBy={onSetFilterBy} defaultFilter={filterBy} />
+            <BookList
+                books={books}
+                onRemoveBook={onRemoveBook}
+            />
         </section>
     )
 }

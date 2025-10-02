@@ -8,6 +8,7 @@ import { Home } from './pages/Home.jsx'
 import { BookIndex } from './pages/BookIndex.jsx'
 import { AppHeader } from './cmps/AppHeader.jsx'
 import { NotFound } from './cmps/NotFound.jsx'
+import { BookDetails } from './pages/BookDetails.jsx'
 
 export function App() {
 
@@ -23,6 +24,7 @@ export function App() {
                         <Route path="/home" element={<Home />} />
                         <Route path="/about" element={<About />} />
                         <Route path="/book" element={<BookIndex />} />
+                        <Route path="/book/:bookId" element={<BookDetails />} />
                         <Route path="*" element={<NotFound />} />
                     </Routes>
                 </main>
