@@ -1,27 +1,33 @@
+const Router = ReactRouterDOM.HashRouter
+const { Routes, Route, Navigate } = ReactRouterDOM
+
 const { useState } = React
+
 import { About } from './pages/About.jsx'
 import { Home } from './pages/Home.jsx'
 import { BookIndex } from './pages/BookIndex.jsx'
+import { AppHeader } from './cmps/AppHeader.jsx'
+import { NotFound } from './cmps/NotFound.jsx'
 
 export function App() {
 
 
     return (
-        <section className="app grid">
-            <header className="app-header grid">
-                <section className='nav-title'>
-                    <h1 className='title'>Miss Books</h1>
-                </section>
-                <section className='nav-menu grid'>
-                    <a onClick={() => setPage('home')}>Home</a>
-                    <a onClick={() => setPage('about')}>About Us</a>
-                    <a onClick={() => setPage('book')}>Books</a>
-                </section>
-            </header>
+        <Router>
+            <section className="app grid">
+                <AppHeader />
 
-            <main className="main-layout">
-             
-            </main>
-        </section>
+                <main className="main-layout">
+                    <Routes>
+                        <Route path="/" element={<Navigate to="/home" />} />
+                        <Route path="/home" element={<Home />} />
+                        <Route path="/about" element={<About />} />
+                        <Route path="/book" element={<BookIndex />} />
+                        <Route path="*" element={<NotFound />} />
+                    </Routes>
+                </main>
+
+            </section>
+        </Router>
     )
 }

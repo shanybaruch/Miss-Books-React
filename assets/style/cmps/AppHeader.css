@@ -1,8 +1,7 @@
 .app-header {
-  background-color: transparent;
-  color: var(--gray3);
+  font-family: 'Edu VIC WA NT Beginner', cursive;
+  /* background-color: transparent; */
   font-size: 1.2rem;
-  /* border-bottom: 2px solid var(--clr1); */
 
   .nav-title {
     display: grid;
@@ -11,22 +10,26 @@
     .title {
       font-size: 1.4rem;
       text-align: center;
-      width: 8em;
+      max-width: 8em;
       font-weight: 400;
       padding-block: 1.2em;
     }
   }
 
   .nav-menu {
-    a {
-      font-family: 'Edu VIC WA NT Beginner', cursive;
-      text-align: center;
-      width: 8em;
-      padding-block: 1.2em;
+    justify-self: center;
+    gap: 3em;
 
-      &:hover {
-        border-inline: 2px solid var(--clr1);
-      }
+    a:hover {
+      scale: 1.2;
+      transition: .3s;
+
+    }
+
+    a.active {
+      scale: 1.2;
+      color: var(--clr-dark);
+      font-weight: 800;
     }
   }
 }
