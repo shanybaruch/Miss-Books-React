@@ -17,6 +17,7 @@ export const bookService = {
     getFilterBy,
     setFilterBy,
     getDefaultFilter,
+    _setNextPrevBookId,
 }
 
 function query(filterBy = {}) {
@@ -39,9 +40,11 @@ function query(filterBy = {}) {
 
 function get(bookId) {
     return storageService.get(BOOK_KEY, bookId)
+        .then(_setNextPrevBookId)
 }
 
 function remove(bookId) {
+    // return Promise.reject('Oh No!')
     return storageService.remove(BOOK_KEY, bookId)
 }
 
@@ -54,7 +57,7 @@ function save(book) {
 }
 
 function getEmptyBook(title = '', price = '', isOnSale = Math.random() > 0.7) {
-    return { title, price}
+    return { title, price }
 }
 
 function getDefaultFilter() {
@@ -77,6 +80,18 @@ function getNextBookId(bookId) {
             let nextbookIdx = books.findIndex(book => book.id === bookId) + 1
             if (nextbookIdx === books.length) nextbookIdx = 0
             return books[nextbookIdx].id
+        })
+}
+
+function _setNextPrevBookId(book) {
+    return query()
+        .then((books) => {
+            const bookIdx = books.findIndex((currBook) => currBook.id === book.id)
+            const nextBook = books[bookIdx + 1] ? books[bookIdx + 1] : books[0]
+            const prevBook = books[bookIdx - 1] ? books[bookIdx - 1] : books[books.length - 1]
+            book.nextBookId = nextBook.id
+            book.prevBookId = prevBook.id
+            return book
         })
 }
 

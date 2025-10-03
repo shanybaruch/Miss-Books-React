@@ -2,23 +2,27 @@
     background-color: lightgray;
     padding: .5em 1em;
     position: fixed;
-    bottom: 0;
+    bottom: 1em;
     right: 1em;
     color: white;
+    font-size: 1.2rem;
     font-weight: bold;
     border-radius: 2px;
+    h4 {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
 }
 
 .user-msg.success {
-    background-color: var(--clr1);
+    background-color: var(--clr-dark);
 }
 
 .user-msg.error {
-    background-color: var(--clr2);
+    background-color: var(--clr-red);
 }
 
 
 .user-msg button{
     float: right;
-    margin: 1em;
+    margin: 0.5em;
 }

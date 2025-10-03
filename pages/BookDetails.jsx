@@ -2,7 +2,7 @@ import { LongTxt } from "../cmps/LongTxt.jsx";
 import { bookService } from "../services/book.service.js";
 
 const { useState, useEffect } = React
-const { useParams, useNavigate } = ReactRouterDOM
+const { useParams, useNavigate, Link } = ReactRouterDOM
 
 export function BookDetails({ bookId, onBack = () => { } }) {
     // console.log('Book id - details: ', bookId);
@@ -13,7 +13,7 @@ export function BookDetails({ bookId, onBack = () => { } }) {
 
     useEffect(() => {
         loadBook()
-    }, [])
+    }, [params.bookId])
 
     function loadBook() {
         bookService.get(params.bookId)
@@ -80,6 +80,11 @@ export function BookDetails({ bookId, onBack = () => { } }) {
             </section>
 
             <button className="btn-back" onClick={onBack}>Back</button>
+
+            <section>
+                <button><Link to={`/book/${book.prevBookId}`}>Prev</Link></button>
+                <button><Link to={`/book/${book.nextBookId}`}>Next</Link></button>
+            </section>
 
         </section>
     )

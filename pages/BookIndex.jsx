@@ -28,8 +28,12 @@ export function BookIndex() {
             .then(() => utilService.animateCSS(elLi, 'fadeOut'))
             .then(() => {
                 setBooks(books => books.filter(book => book.id !== bookId))
+                showSuccessMsg('Book removed successfully')
             })
-            .catch(err => console.log('err:', err))
+            .catch(err => {
+                console.log('err:', err)
+                showErrorMsg('Cannot remove book - ',{bookId})
+            })
     }
 
     function onSetFilterBy(newFilterBy) {

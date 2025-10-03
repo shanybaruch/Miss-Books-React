@@ -18,9 +18,9 @@
 
 /* Components */
 @import 'cmps/AppHeader.css';
-@import 'cmps/user-msg.css';
+@import 'cmps/UserMsg.css';
 @import url('cmps/main-layout.css');
 @import url('cmps/BookFilter.css');
 @import url('cmps/BookList.css');
-@import url('cmps/bookPreview.css');
+@import url('cmps/BookPreview.css');
 @import url('cmps/NotFound.css');

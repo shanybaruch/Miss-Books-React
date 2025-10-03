@@ -5,8 +5,8 @@ const { useState, useEffect } = React
 export function BookEdit() {
 
     const [bookToEdit, setBookToEdit] = useState(bookService.getEmptyBook())
-    const [isLoading, setIsLoading] = useState(false) 
-    
+    const [isLoading, setIsLoading] = useState(false)
+
     const navigate = useNavigate()
     const { bookId } = useParams()
 
@@ -61,8 +61,14 @@ export function BookEdit() {
     function onSaveBook(ev) {
         ev.preventDefault()
         bookService.save(bookToEdit)
-            .then(() => navigate('/book'))
-            .catch(err => console.log('err: ', err))
+            .then(() => {
+                navigate('/book')
+                showSuccessMsg('Book added!')
+            })
+            .catch(err => {
+                console.log('err: ', err)
+                showErrorMsg('Cannot add the book...')
+            })
     }
 
     const { title, price } = bookToEdit
