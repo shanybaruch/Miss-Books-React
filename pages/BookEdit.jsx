@@ -67,7 +67,7 @@ export function BookEdit() {
             })
             .catch(err => {
                 console.log('err: ', err)
-                showErrorMsg('Cannot add the book...')
+                showErrorMsg('Cannot save book...')
             })
     }
 
