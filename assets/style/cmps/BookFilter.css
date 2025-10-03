@@ -1,5 +1,6 @@
 .book-filter {
     display: flex;
+    align-items: center;
     gap: 0.5em;
 
     background-color: var(--clr2);
@@ -10,6 +11,9 @@
 }
 
 .book-filter>h2 {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 1rem;
+    font-weight: 100;
     margin-top: 0;
     margin-bottom: .3em;
 }

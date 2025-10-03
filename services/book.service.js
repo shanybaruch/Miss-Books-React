@@ -53,8 +53,8 @@ function save(book) {
     }
 }
 
-function getEmptyBook(title = '', price = '') {
-    return { title, price, }
+function getEmptyBook(title = '', price = '', isOnSale = Math.random() > 0.7) {
+    return { title, price}
 }
 
 function getDefaultFilter() {
@@ -103,7 +103,7 @@ function _createBooks() {
     if (!books || !books.length) {
 
         const ctgs = ['Love', 'Fiction', 'Poetry', 'Computers', 'Religion']
-        const books = []
+        books = []
 
         for (let i = 0; i < 20; i++) {
             const book = {

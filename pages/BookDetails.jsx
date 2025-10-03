@@ -46,6 +46,7 @@ export function BookDetails({ bookId, onBack = () => { } }) {
 
             <section className="basic-info">
                 <p className="sub">Authors: <span>{book.authors}</span> </p>
+                <p>{book}</p>
                 <p className="sub">Published in <span>{book.publishedDate}</span> </p>
                 <p className="sub">Categories: <span>{book.categories}</span> </p>
                 <p className="sub">Language: <span>{book.language}</span> </p>
@@ -70,7 +71,7 @@ export function BookDetails({ bookId, onBack = () => { } }) {
             </section>
 
             <section className="book-price">
-                {book.listPrice.isOnSale && <h4 className='sale'>Sale</h4>}
+                {/* {book.listPrice.isOnSale && <h4 className='sale'>Sale</h4>} */}
                 <img src={book.thumbnail} alt="Book Image" />
 
                 <p className={`price

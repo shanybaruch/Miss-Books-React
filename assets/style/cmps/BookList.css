@@ -1,3 +1,11 @@
+/* .btn-add-book {
+    justify-self: center;
+
+    margin-top: 1.2em;
+    color: var(--clr-dark);
+    border: 2px solid var(--clr-dark);
+} */
+
 .book-list {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
@@ -64,15 +72,26 @@
         }
 
     }
-    
+
     .btn-remove {
         right: -0.5em;
         /* right: 3em; */
     }
-    
+
     .btn-details {
         /* left: -0.4em; */
         right: 1em;
+        background-color: aqua;
+    }
+
+    .btns {
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+
+        button {
+            margin: 0.2em;
+        }
     }
 }
 

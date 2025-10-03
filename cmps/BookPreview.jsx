@@ -6,7 +6,7 @@ export function BookPreview({ book }) {
             <section>
                 <h3 className="title bold">{book.title}</h3>
                 <img src={book.thumbnail} alt="Book Image" />
-                <section className="price">{book.listPrice.amount} €</section>
+                {/* <section className="price">{book.listPrice.amount} €</section> */}
             </section>
         </article>
     )

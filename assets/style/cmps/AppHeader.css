@@ -8,7 +8,7 @@
     grid-template-columns: 1fr 1fr 1fr;
 
     .title {
-      font-size: 1.4rem;
+      font-size: 1.3rem;
       text-align: center;
       max-width: 8em;
       font-weight: 400;
@@ -35,7 +35,19 @@
 }
 
 @media(max-width: 720px) {
-  /* .app-header {
-    color: var(--gray1);
-  } */
+  .app-header {
+
+    .nav-title {
+      grid-template-columns: 1fr;
+     
+      .title {
+        font-size: 1.1rem;
+      }
+    }
+
+
+    .nav-menu {
+      gap: 1em;
+    }
+  }
 }
