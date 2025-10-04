@@ -56,8 +56,8 @@ function save(book) {
     }
 }
 
-function getEmptyBook(title = '', price = '', isOnSale = Math.random() > 0.7) {
-    return { title, price }
+function getEmptyBook(id = '', title = '', subtitle = '', authors = [], listPrice = { amount: '', currencyCode: "EUR", isOnSale: false } , publishedDate = '' ) {
+    return { id, title, subtitle, listPrice, publishedDate, }
 }
 
 function getDefaultFilter() {

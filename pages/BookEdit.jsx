@@ -23,13 +23,15 @@ export function BookEdit() {
                     return
                 }
                 const formBook = {
-                    id: book.id,
-                    title: (book && typeof book.title !== 'undefined') ? book.title : '',
-                    price: (book && book.listPrice && typeof book.listPrice.amount !== 'undefined')
-                        ? book.listPrice.amount
-                        : (book && book.price && typeof book.price !== 'undefined')
-                            ? book.price
-                            : ''
+                    id: book.id || '',
+                    title: book.title || '',
+                    subtitle: book.subtitle || '',
+                    listPrice: {
+                        amount: amount,
+                        currencyCode: (book.listPrice && book.listPrice.currencyCode) ? book.listPrice.currencyCode : 'EUR',
+                        isOnSale: (book.listPrice && typeof book.listPrice.isOnSale !== 'undefined') ? book.listPrice.isOnSale : false
+                    },
+                    publishedDate: book.publishedDate || ''
                 }
                 setBookToEdit(formBook)
             })
@@ -47,9 +49,14 @@ export function BookEdit() {
 
         switch (target.type) {
             case 'number':
+                setBookToEdit(prev => ({
+                    ...prev,
+                    listPrice: { ...prev.listPrice, amount: value }
+                }))
+                return
             case 'range':
                 value = +value
-                break;
+                break
 
             case 'checkbox':
                 value = target.checked
@@ -71,7 +78,8 @@ export function BookEdit() {
             })
     }
 
-    const { title, price } = bookToEdit
+    const { title } = bookToEdit
+    let listPrice = bookToEdit.listPrice || { amount: '' }
     console.log('book to edit: ', bookToEdit);
     const loadingClass = isLoading ? 'loading' : ''
 
@@ -83,7 +91,8 @@ export function BookEdit() {
                 <input value={title} type="text" onChange={handleChange} name="title" id="title" />
 
                 <label htmlFor="price">Price</label>
-                <input value={price} type="number" onChange={handleChange} name="price" id="price" />
+                <input value={listPrice.amount === 0 ? 0 : (listPrice.amount || '')}
+                    type="number" onChange={handleChange} name="price" id="price" />
 
                 <button>Save</button>
             </form>

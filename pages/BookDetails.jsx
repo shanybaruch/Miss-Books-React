@@ -46,8 +46,6 @@ export function BookDetails({ bookId, onBack = () => { } }) {
 
             <section className="basic-info">
                 <p className="sub">Authors: <span>{book.authors}</span> </p>
-                <p>{book}</p>
-                <p className="sub">Published in <span>{book.publishedDate}</span> </p>
                 <p className="sub">Categories: <span>{book.categories}</span> </p>
                 <p className="sub">Language: <span>{book.language}</span> </p>
                 <p className="sub">Currency: <span>{book.listPrice.currencyCode}</span> </p>
@@ -62,6 +60,8 @@ export function BookDetails({ bookId, onBack = () => { } }) {
                     ) : null}
 
                     <p className="pages-count">{book.pageCount} pages</p>
+
+                    {/* <pre>{JSON.stringify(book, null, 2)}</pre>      */}
                 </section>
             </section>
 
@@ -71,7 +71,7 @@ export function BookDetails({ bookId, onBack = () => { } }) {
             </section>
 
             <section className="book-price">
-                {/* {book.listPrice.isOnSale && <h4 className='sale'>Sale</h4>} */}
+                {book.listPrice.isOnSale && <h4 className='sale'>Sale</h4>}
                 <img src={book.thumbnail} alt="Book Image" />
 
                 <p className={`price
