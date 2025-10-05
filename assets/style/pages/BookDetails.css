@@ -129,4 +129,12 @@
             color: var(--gray1);
         }
     }
+
+    .btn-prev, .btn-next {
+        font-size: 0.8rem;
+        /* border: 2px solid var(--clr-dark);
+        padding: 0.5em;
+        padding-inline: 1em;
+        border-radius: 1em; */
+    }
 }

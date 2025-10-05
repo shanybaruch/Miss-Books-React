@@ -2,8 +2,6 @@ import { utilService } from './util.service.js'
 import { storageService } from './async-storage.service.js'
 
 const BOOK_KEY = 'bookDB'
-// var filterBy = { title: '', maxPrice: null, }
-// onSale: false ,pageCount: Infinity,
 
 _createBooks()
 

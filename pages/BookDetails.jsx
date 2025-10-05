@@ -65,6 +65,7 @@ export function BookDetails({ bookId, onBack = () => { } }) {
                 </section>
             </section>
 
+
             <section>
                 <p className="title-description">Description:</p>
                 {book.description && <LongTxt txt={book.description} />}
@@ -82,8 +83,8 @@ export function BookDetails({ bookId, onBack = () => { } }) {
             <button className="btn-back" onClick={onBack}>Back</button>
 
             <section>
-                <button><Link to={`/book/${book.prevBookId}`}>Prev</Link></button>
-                <button><Link to={`/book/${book.nextBookId}`}>Next</Link></button>
+                <button><Link className="btn-prev" to={`/book/${book.prevBookId}`}>Prev</Link></button>
+                <button><Link className="btn-next" to={`/book/${book.nextBookId}`}>Next</Link></button>
             </section>
 
         </section>
