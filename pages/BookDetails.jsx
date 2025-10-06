@@ -111,28 +111,32 @@ export function BookDetails({ bookId, onBack = () => { } }) {
                     </section>
                 </section>
 
-                <button className="btn-back" onClick={onBack}>Back</button>
+                <section className="page-bottom">
+                    <section>
+                        <button className="btn-back" onClick={onBack}>Back</button>
+                    </section>
 
-                <section>
-                    <button><Link className="btn-prev" to={`/book/${book.prevBookId}`}>Prev</Link></button>
-                    <button><Link className="btn-next" to={`/book/${book.nextBookId}`}>Next</Link></button>
-                </section>
+                    <section className="page-nav-btns flex">
+                        <button><Link className="btn-prev fa-solid fa-arrow-left" to={`/book/${book.prevBookId}`}></Link></button>
+                        <button><Link className="btn-next fa-solid fa-arrow-right" to={`/book/${book.nextBookId}`}></Link></button>
+                    </section>
 
-                <section>
-                    <button onClick={onToggleReviewModal}>Add Review</button>
-                    {isShowReviewModal && (
-                        <AddReview
-                            toggleReview={onToggleReviewModal}
-                            saveReview={onSaveReview}
-                        />
-                    )}
-                </section>
+                    <section className="flex">
+                        <button className="btn-add-review" onClick={onToggleReviewModal}>Add Review</button>
+                        {isShowReviewModal && (
+                            <AddReview
+                                toggleReview={onToggleReviewModal}
+                                saveReview={onSaveReview}
+                            />
+                        )}
+                    </section>
 
-                <section>
-                    {!isLoadingReview
-                        ? <ReviewList reviews={book.reviews} onRemoveReview={onRemoveReview} />
-                        : <div className="loader"></div>
-                    }
+                    <section>
+                        {!isLoadingReview
+                            ? <ReviewList reviews={book.reviews} onRemoveReview={onRemoveReview} />
+                            : <div className="loader"></div>
+                        }
+                    </section>
                 </section>
             </section>
         </section>

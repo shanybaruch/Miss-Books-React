@@ -126,27 +126,43 @@
         }
     }
 
-    .btn-back {
-        position: absolute;
-        bottom: 2em;
-        right: 0;
+    .page-bottom {
 
-        /* background-color: var(--gray2); */
-        padding: 0;
-        color: var(--gray3);
-        font-size: .9rem;
-        font-weight: 100;
-        background-color: transparent;
-
-        &:hover {
-            background-color: transparent;
-            /* color: var(--gray3); */
-            scale: 1.2;
+        .btn-add-review {
+            margin: auto;
+            font-size: 0.9rem;
         }
-    }
 
-    .btn-prev,
-    .btn-next {
-        font-size: 0.8rem;
+        .page-nav-btns {
+            justify-content: center;
+
+            margin-top: 1em;
+
+            .btn-prev,
+            .btn-next {
+                font-size: 0.8rem;
+
+            }
+        }
+
+        .btn-back {
+            position: absolute;
+            bottom: 4em;
+            right: 0;
+
+            /* background-color: var(--gray2); */
+            padding: 0;
+            color: var(--gray3);
+            font-size: .9rem;
+            font-weight: 100;
+            background-color: transparent;
+
+            &:hover {
+                background-color: transparent;
+                /* color: var(--gray3); */
+                scale: 1.2;
+            }
+        }
+
     }
 }

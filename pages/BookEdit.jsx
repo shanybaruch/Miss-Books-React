@@ -27,13 +27,15 @@ export function BookEdit() {
                     title: book.title || '',
                     subtitle: book.subtitle || '',
                     listPrice: {
-                        amount: amount,
+                        amount: (book.listPrice && typeof book.listPrice.amount !== 'undefined')
+                            ? book.listPrice.amount
+                            : '',
                         currencyCode: (book.listPrice && book.listPrice.currencyCode) ? book.listPrice.currencyCode : 'EUR',
                         isOnSale: (book.listPrice && typeof book.listPrice.isOnSale !== 'undefined') ? book.listPrice.isOnSale : false
                     },
                     publishedDate: book.publishedDate || ''
                 }
-                setBookToEdit(formBook)
+                setBookToEdit({...book, ...formBook})
             })
             .catch(err => {
                 console.log('err:', err)
