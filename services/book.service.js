@@ -16,6 +16,13 @@ export const bookService = {
     setFilterBy,
     getDefaultFilter,
     _setNextPrevBookId,
+    saveReview,
+    removeReview,
+    getGoogleBooks,
+    addGoogleBook,
+    getEmptyReview,
+    getFilterFromParams,
+    
 }
 
 function query(filterBy = {}) {
@@ -150,3 +157,71 @@ function _createBooks() {
 //     book.id = utilService.makeId()
 //     return book
 // }
+
+function _createReview(reviewToSave) {
+    return {
+        id: utilService.makeId(),
+        ...reviewToSave,
+    }
+}
+
+function saveReview(bookId, reviewToSave) {
+    return get(bookId).then(book => {
+        const review = _createReview(reviewToSave)
+        book.reviews.unshift(review)
+        return save(book).then(() => review)
+    })
+}
+
+function removeReview(bookId, reviewId) {
+    return get(bookId).then(book => {
+        const newReviews = book.reviews.filter((review) => review.id !== reviewId)
+        book.reviews = newReviews
+        return save(book)
+    })
+}
+
+function getGoogleBooks(bookName) {
+    if (bookName === '') return Promise.resolve()
+    const googleBooks = gCache[bookName]
+    if (googleBooks) {
+        console.log('data from storage...', googleBooks)
+        return Promise.resolve(googleBooks)
+    }
+
+    const url = `https://www.googleapis.com/books/v1/volumes?printType=books&q=${bookName}`
+
+    return axios.get(url)
+        .then(res => {
+            console.log({ res });
+            const data = res.data.items
+            console.log('data from network...', data)
+            const books = _formatGoogleBooks(data)
+            gCache[bookName] = books
+            utilService.saveToStorage(CACHE_STORAGE_KEY, gCache)
+            return books
+        })
+}
+
+function addGoogleBook(book) {
+    return storageService.post(BOOK_KEY, book, false)
+}
+
+function getEmptyReview() {
+    return {
+        fullName: 'new name',
+        rating: 0,
+        date: new Date().toISOString().slice(0, 10),
+        txt: '',
+        selected: 0,
+    }
+}
+
+function getFilterFromParams(searchParams = {}) {
+    const defaultFilter = getDefaultFilter()
+    return {
+        title: searchParams.get('title') || defaultFilter.title,
+        minPrice: searchParams.get('maxPrice') || defaultFilter.minPrice,
+
+    }
+}

@@ -1,7 +1,14 @@
 .book-details {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    align-items: start;
+
+    .page {
+        position: relative;
+
+        .details {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            align-items: start;
+        }
+    }
 
     .header {
         .title {
@@ -9,7 +16,7 @@
 
             color: var(--clr1);
             font-weight: 800;
-            font-size: 3em;
+            font-size: 2.2em;
             margin-bottom: .1em;
         }
 
@@ -19,7 +26,6 @@
         }
 
         .published-date {
-            font-family: 'Edu VIC WA NT Beginner', cursive;
             font-size: 1.3rem;
             font-weight: 600;
             color: var(--clr-dark);
@@ -61,7 +67,7 @@
         }
 
         img {
-            max-width: 220px;
+            max-width: 200px;
             margin-top: .3em;
         }
     }
@@ -70,7 +76,9 @@
         grid-row: 2 / 3;
 
         .sub {
-            font-weight: 800;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+            font-weight: 700;
 
             span {
                 font-weight: 200;
@@ -82,14 +90,17 @@
         .level {
             color: var(--clr-dark);
             margin-top: 0.5em;
-            font-weight: 800;
+            font-weight: 700;
             font-size: 1.2rem;
-            font-family: cursive;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
         .pages-count {
             grid-row: 2 / 3;
             grid-column: 1 / 2;
+
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
         }
     }
 
@@ -98,15 +109,16 @@
     }
 
     section {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 
         .title-description {
             grid-row: 3 / 4;
-            color: var(--clr-dark);
+            /* color: var(--clr-dark); */
 
             font-weight: 700;
             margin-top: 0.5em;
-            font-family: cursive;
-            font-size: 1.1rem;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-size: 1rem;
         }
 
         p {
@@ -115,26 +127,26 @@
     }
 
     .btn-back {
-        justify-self: end;
-        align-self: end;
-        grid-row: 4 / 5;
-        grid-column: 2 / 3;
+        position: absolute;
+        bottom: 2em;
+        right: 0;
 
-        font-size: .9rem;
-        background-color: var(--clr2);
+        /* background-color: var(--gray2); */
+        padding: 0;
         color: var(--gray3);
+        font-size: .9rem;
+        font-weight: 100;
+        background-color: transparent;
 
         &:hover {
-            background-color: var(--clr-dark);
-            color: var(--gray1);
+            background-color: transparent;
+            /* color: var(--gray3); */
+            scale: 1.2;
         }
     }
 
-    .btn-prev, .btn-next {
+    .btn-prev,
+    .btn-next {
         font-size: 0.8rem;
-        /* border: 2px solid var(--clr-dark);
-        padding: 0.5em;
-        padding-inline: 1em;
-        border-radius: 1em; */
     }
 }
