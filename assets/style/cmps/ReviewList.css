@@ -1,5 +1,12 @@
 .review-list {
-    h3 {
-       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+    .title {
+       text-align: center;
+       font-weight: 100;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+    }
+
+    p {
+         font-weight: 100;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
     }
 }

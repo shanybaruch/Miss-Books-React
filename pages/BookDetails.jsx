@@ -60,7 +60,10 @@ export function BookDetails({ bookId, onBack = () => { } }) {
                 const reviews = [review, ...book.reviews]
                 setBook({ ...book, reviews })
             }))
-            .catch(() => showErrorMsg(`Review to ${book.title} Failed!`))
+            .catch(err => {
+                console.log('Error: ', err)
+                showErrorMsg(`Review to ${book.title} Failed!`)
+            })
             .finally(() => setIsLoadingReview(false))
     }
 
@@ -71,8 +74,7 @@ export function BookDetails({ bookId, onBack = () => { } }) {
                 <section className="details">
                     <section className="header">
                         <h2 className="title">{book.title}</h2>
-                        <h3 className="subtitle bold">{book.subtitle}</h3>
-                        <span className="published-date">{getBookDateDiff() > 10 ? 'Vintage Book' : getBookDateDiff() <= 1 ? 'New Book' : ''}</span>
+                        <h3 className="subtitle">{book.subtitle}</h3>
                     </section>
 
                     <section className="basic-info">
@@ -80,6 +82,7 @@ export function BookDetails({ bookId, onBack = () => { } }) {
                         <p className="sub">Categories: <span>{book.categories}</span> </p>
                         <p className="sub">Language: <span>{book.language}</span> </p>
                         <p className="sub">Currency: <span>{book.listPrice.currencyCode}</span> </p>
+                     
 
                         <section className="pages">
                             {book.pageCount > 500 ? (
@@ -90,9 +93,9 @@ export function BookDetails({ bookId, onBack = () => { } }) {
                                 <h4 className="level">Light Reading</h4>
                             ) : null}
 
+                            <p className="published-date">{getBookDateDiff() > 10 ? 'Vintage Book' : getBookDateDiff() <= 1 ? 'New Book' : ''}</p>
                             <p className="pages-count">{book.pageCount} pages</p>
 
-                            {/* <pre>{JSON.stringify(book, null, 2)}</pre>      */}
                         </section>
                     </section>
 
@@ -111,17 +114,18 @@ export function BookDetails({ bookId, onBack = () => { } }) {
                     </section>
                 </section>
 
+                <section className="section-btn-back">
+                    <button className="btn-back" onClick={onBack}>Back</button>
+                </section>
+
                 <section className="page-bottom">
-                    <section>
-                        <button className="btn-back" onClick={onBack}>Back</button>
-                    </section>
 
                     <section className="page-nav-btns flex">
                         <button><Link className="btn-prev fa-solid fa-arrow-left" to={`/book/${book.prevBookId}`}></Link></button>
                         <button><Link className="btn-next fa-solid fa-arrow-right" to={`/book/${book.nextBookId}`}></Link></button>
                     </section>
 
-                    <section className="flex">
+                    <section className="grid">
                         <button className="btn-add-review" onClick={onToggleReviewModal}>Add Review</button>
                         {isShowReviewModal && (
                             <AddReview

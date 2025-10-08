@@ -14,21 +14,18 @@
         .title {
             justify-self: start;
 
-            color: var(--clr1);
+            color: var(--clr-dark);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             font-weight: 800;
-            font-size: 2.2em;
+            font-size: 2em;
             margin-bottom: .1em;
         }
 
         .subtitle {
-            font-size: 1.3rem;
+            font-size: 1rem;
+            font-weight: 100;
             margin-bottom: 1em;
-        }
-
-        .published-date {
-            font-size: 1.3rem;
-            font-weight: 600;
-            color: var(--clr-dark);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
     }
 
@@ -46,29 +43,34 @@
         .price {
             justify-self: center;
 
-            margin-top: .5em;
-            font-size: .9rem;
-            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            margin-top: 0;
+            font-size: 1rem;
+            font-weight: 100;
+            width: max-content;
+            /* font-family: Verdana, Geneva, Tahoma, sans-serif; */
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
         }
 
         .sale {
             position: absolute;
-            top: -0.5em;
-            left: -1em;
+            bottom: 0em;
 
-            background-color: var(--clr-red);
-            color: var(--clr-light);
+            color: var(--clr-dark);
+            width: max-content;
             border-radius: 50%;
-            padding: 0.3em;
-            /* font-weight: 600; */
-            font-size: 1.4rem;
+            padding: 0;
+            font-weight: 700;
+            font-size: 1.2rem;
             text-align: center;
-            font-family: cursive;
+            /* font-family: cursive; */
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
         img {
-            max-width: 200px;
-            margin-top: .3em;
+            width: clamp(150px, 25vw, 250px);
+            height: auto;
+            margin-top: 0.5em;
         }
     }
 
@@ -77,8 +79,7 @@
 
         .sub {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-
-            font-weight: 700;
+            font-weight: 100;
 
             span {
                 font-weight: 200;
@@ -88,17 +89,25 @@
 
     .pages {
         .level {
-            color: var(--clr-dark);
+            /* color: var(--clr-dark); */
             margin-top: 0.5em;
-            font-weight: 700;
-            font-size: 1.2rem;
+            font-weight: 100;
+            font-size: 1rem;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .published-date {
+            font-size: 1.3rem;
+            font-weight: 100;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            /* color: var(--clr-dark); */
         }
 
         .pages-count {
             grid-row: 2 / 3;
             grid-column: 1 / 2;
 
+            font-weight: 100;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 
         }
@@ -115,7 +124,7 @@
             grid-row: 3 / 4;
             /* color: var(--clr-dark); */
 
-            font-weight: 700;
+            font-weight: 100;
             margin-top: 0.5em;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             font-size: 1rem;
@@ -126,11 +135,36 @@
         }
     }
 
+    .section-btn-back {
+        position: relative;
+
+        .btn-back {
+            position: absolute;
+            bottom: -3em;
+            right: 0;
+
+            /* background-color: var(--gray2); */
+            padding: 0;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            color: var(--gray3);
+            font-size: 1rem;
+            font-weight: 100;
+            background-color: transparent;
+
+            &:hover {
+                background-color: transparent;
+                /* color: var(--gray3); */
+                scale: 1.2;
+            }
+        }
+    }
+
     .page-bottom {
 
         .btn-add-review {
-            margin: auto;
-            font-size: 0.9rem;
+            justify-self: end;
+            font-weight: 100;
+            font-size: 0.8rem;
         }
 
         .page-nav-btns {
@@ -141,28 +175,15 @@
             .btn-prev,
             .btn-next {
                 font-size: 0.8rem;
-
             }
         }
-
-        .btn-back {
-            position: absolute;
-            bottom: 4em;
-            right: 0;
-
-            /* background-color: var(--gray2); */
-            padding: 0;
-            color: var(--gray3);
-            font-size: .9rem;
-            font-weight: 100;
-            background-color: transparent;
-
-            &:hover {
-                background-color: transparent;
-                /* color: var(--gray3); */
-                scale: 1.2;
-            }
-        }
-
     }
+
+    .long-txt .txt {
+        font-weight: 100;
+    }
+}
+
+@media (max-width: 480px) {
+
 }

@@ -1,5 +1,6 @@
 .long-txt {
-    section {
-        font-family: cursive;
+    .long-txt .txt{
+        /* font-family: cursive; */
+        /* font-weight: 100; */
     }
 }

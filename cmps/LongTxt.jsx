@@ -11,7 +11,7 @@ export function LongTxt({ txt, length = 100 }) {
     const textToShow = isShowLong ? txt : (txt.substring(0, length))
     return (
         <section className="long-txt">
-            <section>
+            <section className="txt">
                 {textToShow}
                 {isLongText &&
                     <button onClick={onToggleIsShowLong}>

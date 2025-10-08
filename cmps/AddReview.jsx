@@ -1,3 +1,5 @@
+import { TextboxRating } from "./TextboxRating.jsx"
+
 const { useState, useRef, useEffect } = React
 
 export function AddReview({ saveReview, toggleReview }) {
@@ -39,19 +41,19 @@ export function AddReview({ saveReview, toggleReview }) {
                 <div className="review-modal">
                     <h1 className="title">Add review</h1>
 
-                    <button className="btn-toggle-modal" onClick={toggleReview}>
+                    <button type="button" className="btn-toggle-modal" onClick={toggleReview}>
                         x
                     </button>
 
                     <section className="flex">
-                        <label htmlFor="fullname" className="bold">Full name:</label>
+                        <label htmlFor="fullName" className="bold">Full name:</label>
                         <input
                             type="text"
                             ref={inputRef}
                             autoFocus
                             placeholder="Enter full name"
-                            name="fullname"
-                            id="fullname"
+                            name="fullName"
+                            id="fullName"
                             value={fullName}
                             onChange={handleChange}
                         />
@@ -67,8 +69,9 @@ export function AddReview({ saveReview, toggleReview }) {
                             onChange={handleChange}
                         />
                     </section>
+                    <TextboxRating handleChange={handleChange} txt={txt} />
 
-                    <button>Save</button>
+                    <button type="submit">Save</button>
 
                 </div>
             </form>

@@ -22,7 +22,7 @@ export const bookService = {
     addGoogleBook,
     getEmptyReview,
     getFilterFromParams,
-    
+
 }
 
 function query(filterBy = {}) {
@@ -61,8 +61,22 @@ function save(book) {
     }
 }
 
-function getEmptyBook(id = '', title = '', subtitle = '', authors = [], listPrice = { amount: '', currencyCode: "EUR", isOnSale: false } , publishedDate = '' ) {
-    return { id, title, subtitle, listPrice, publishedDate, }
+function getEmptyBook(title = '', amount = '', description = '', pageCount = '', language = 'en', authors = '') {
+    return {
+        title,
+        authors,
+        description,
+        pageCount,
+        thumbnail: `/assets/booksImages/15.jpg`,
+        language,
+        categories: ['None'],
+        listPrice: {
+            amount,
+            currencyCode: "EUR",
+            isOnSale: Math.random() > 0.7
+        },
+        reviews: []
+    }
 }
 
 function getDefaultFilter() {
@@ -143,7 +157,8 @@ function _createBooks() {
                     amount: utilService.getRandomIntInclusive(80, 500),
                     currencyCode: "EUR",
                     isOnSale: Math.random() > 0.7
-                }
+                },
+                reviews: []
             }
             books.push(book)
         }
@@ -167,7 +182,9 @@ function _createReview(reviewToSave) {
 
 function saveReview(bookId, reviewToSave) {
     return get(bookId).then(book => {
+        if (!book) return Promise.reject(new Error('Book not found'))
         const review = _createReview(reviewToSave)
+        book.reviews = book.reviews || []
         book.reviews.unshift(review)
         return save(book).then(() => review)
     })

@@ -33,7 +33,8 @@ export function BookEdit() {
                         currencyCode: (book.listPrice && book.listPrice.currencyCode) ? book.listPrice.currencyCode : 'EUR',
                         isOnSale: (book.listPrice && typeof book.listPrice.isOnSale !== 'undefined') ? book.listPrice.isOnSale : false
                     },
-                    publishedDate: book.publishedDate || ''
+                    publishedDate: book.publishedDate || '',
+                    reviews: book.reviews || []
                 }
                 setBookToEdit({...book, ...formBook})
             })
