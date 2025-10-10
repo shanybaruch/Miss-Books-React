@@ -1,3 +1,4 @@
+import { AddBook } from "../cmps/AddBook.jsx";
 import { bookService } from "../services/book.service.js";
 const { useNavigate, useParams } = ReactRouterDOM
 const { useState, useEffect } = React
@@ -36,7 +37,7 @@ export function BookEdit() {
                     publishedDate: book.publishedDate || '',
                     reviews: book.reviews || []
                 }
-                setBookToEdit({...book, ...formBook})
+                setBookToEdit({ ...book, ...formBook })
             })
             .catch(err => {
                 console.log('err:', err)
@@ -45,18 +46,27 @@ export function BookEdit() {
             .finally(() => setIsLoading(false))
     }
 
-
     function handleChange({ target }) {
         const field = target.name
         let value = target.value
 
         switch (target.type) {
             case 'number':
-                setBookToEdit(prev => ({
-                    ...prev,
-                    listPrice: { ...prev.listPrice, amount: value }
-                }))
-                return
+                if (field === 'price') {
+                    value = value === '' ? '' : +value
+                    setBookToEdit(prev => ({
+                        ...prev,
+                        listPrice: { ...prev.listPrice, amount: value }
+                    }))
+                    return
+                }
+                if (field === 'pageCount') {
+                    value = value === '' ? '' : +value
+                    setBookToEdit(prev => ({ ...prev, pageCount: value }))
+                    return
+                }
+                break
+
             case 'range':
                 value = +value
                 break
@@ -65,7 +75,7 @@ export function BookEdit() {
                 value = target.checked
                 break
         }
-        setBookToEdit(prevCar => ({ ...prevCar, [field]: value }))
+        setBookToEdit(prevBook => ({ ...prevBook, [field]: value }))
     }
 
     function onSaveBook(ev) {
@@ -81,7 +91,13 @@ export function BookEdit() {
             })
     }
 
-    const { title } = bookToEdit
+    const {
+        title,
+        authors,
+        description,
+        pageCount,
+    } = bookToEdit
+
     let listPrice = bookToEdit.listPrice || { amount: '' }
     console.log('book to edit: ', bookToEdit);
     const loadingClass = isLoading ? 'loading' : ''
@@ -89,13 +105,27 @@ export function BookEdit() {
     return (
         <section className="book-edit">
             <h1>{bookId ? 'Edit' : 'Add'} Book</h1>
+            {!bookId && <AddBook />}
             <form className={loadingClass} onSubmit={onSaveBook}>
-                <label htmlFor="title">Title</label>
+                <label htmlFor="title">Title:</label>
                 <input value={title} type="text" onChange={handleChange} name="title" id="title" />
 
-                <label htmlFor="price">Price</label>
+                <label className='' htmlFor="authors">Authors: </label>
+                <input onChange={handleChange} value={authors}
+                    id='authors' type="text" name='authors' />
+
+                <label htmlFor="price">Price:</label>
                 <input value={listPrice.amount === 0 ? 0 : (listPrice.amount || '')}
                     type="number" onChange={handleChange} name="price" id="price" />
+
+                <label className='' htmlFor="description">Description: </label>
+                <input onChange={handleChange} value={description}
+                    id='description' type="text" name='description' />
+
+                <label className='' htmlFor="pages">Number of pages: </label>
+                <input onChange={handleChange}
+                    value={bookToEdit.pageCount === 0 ? 0 : (bookToEdit.pageCount || '')}
+                    id='pages' type="number" name='pageCount' />
 
                 <button>Save</button>
             </form>

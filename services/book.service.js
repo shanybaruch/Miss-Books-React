@@ -1,7 +1,12 @@
 import { utilService } from './util.service.js'
 import { storageService } from './async-storage.service.js'
+import axios from 'axios'
 
 const BOOK_KEY = 'bookDB'
+const CACHE_STORAGE_KEY = 'googleBooksCache'
+let gCache = utilService.loadFromStorage(CACHE_STORAGE_KEY) || {}
+
+console.log('axios is', axios)
 
 _createBooks()
 
@@ -67,7 +72,7 @@ function getEmptyBook(title = '', amount = '', description = '', pageCount = '',
         authors,
         description,
         pageCount,
-        thumbnail: `/assets/booksImages/15.jpg`,
+        thumbnail: `http://coding-academy.org/books-photos/15.jpg`,
         language,
         categories: ['None'],
         listPrice: {
@@ -218,6 +223,33 @@ function getGoogleBooks(bookName) {
             utilService.saveToStorage(CACHE_STORAGE_KEY, gCache)
             return books
         })
+}
+
+function _formatGoogleBooks(googleBooks) {
+    return googleBooks.map(googleBook => {
+        const { volumeInfo } = googleBook
+
+        let bookPublishedYear = (volumeInfo.publishedDate.length > 4) ? volumeInfo.publishedDate.slice(0, 4) : volumeInfo.publishedDate
+
+        const book = {
+            id: googleBook.id,
+            title: volumeInfo.title,
+            description: volumeInfo.description,
+            pageCount: volumeInfo.pageCount,
+            authors: volumeInfo.authors,
+            categories: volumeInfo.categories,
+            publishedDate: +bookPublishedYear,
+            language: volumeInfo.language,
+            listPrice: {
+                amount: utilService.getRandomIntInclusive(80, 500),
+                currencyCode: "EUR",
+                isOnSale: Math.random() > 0.7
+            },
+            reviews: []
+        }
+        if (volumeInfo.imageLinks) book.thumbnail = volumeInfo.imageLinks.thumbnail
+        return book
+    })
 }
 
 function addGoogleBook(book) {
