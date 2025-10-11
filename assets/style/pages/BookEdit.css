@@ -25,19 +25,19 @@
 .book-edit form {
     display: grid;
     grid-template-columns: 2fr 1fr 2fr;
-    padding-inline-start: 1em;
+    padding-inline: 1em;
 
     /* align-items: center; */
 
     
     font-size: 1rem;
     font-family: 'Edu VIC WA NT Beginner', cursive;
-    width: 70vw;
-    margin: auto;
+    width: 100%;
+    /* margin: auto; */
 
     label {
         grid-column: 1 / 2;
-        justify-self: start;
+        text-align: start;
 
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         font-weight: 100;
@@ -48,7 +48,7 @@
 .book-edit form input {
     grid-column: 3 / 4;
 
-    max-width: 300px;
+    width: 100%;
     margin-bottom: 15px;
 }
 

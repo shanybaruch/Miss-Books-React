@@ -1,0 +1,30 @@
+.add-book {
+    .search-line {
+        grid-template-columns: 1fr 1fr 1fr;
+        align-items: center;
+        justify-content: center;
+        gap: 1em;
+
+        margin-bottom: 1em;
+        
+        .title-search {
+            align-content: center;
+            justify-self: end;
+
+            margin: 0;
+        }
+
+        .btn-reset {
+            grid-column: 3 / 4;
+
+            width: max-content;
+            margin: 0;
+        }
+    }
+
+    .load {
+        padding: 0;
+        margin: 0;
+        font-size: .9rem;
+    }
+}

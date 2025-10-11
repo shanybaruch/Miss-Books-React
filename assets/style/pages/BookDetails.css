@@ -97,7 +97,8 @@
         }
 
         .published-date {
-            font-size: 1.3rem;
+            font-size: 1rem;
+            
             font-weight: 100;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             /* color: var(--clr-dark); */

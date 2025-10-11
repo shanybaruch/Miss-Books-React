@@ -2,7 +2,7 @@ import { StarRating } from "./dynamic-inputs/StarRating.jsx"
 
 
 export function ReviewPreview({ review, onRemoveReview }) {
-    console.log({ review });
+    // console.log({ review });
     
     return (
         <section className='review-preview'>

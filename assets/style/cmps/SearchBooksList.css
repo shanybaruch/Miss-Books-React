@@ -1,0 +1,14 @@
+.search-books-list {
+    li {
+        padding-inline-start: 1em;
+        justify-self: start;
+    }
+    .btn-add-book {
+        margin: 0;
+        border-radius: 100%;
+        padding: .3em;
+        padding-inline: .6em;
+    }
+    font-size: .8rem;
+
+}

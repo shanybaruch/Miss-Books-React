@@ -39,13 +39,15 @@ export function AddBook() {
 
     return (
         <section className="add-book">
-                <p className=''>Google Search: </p>
+            <section className="search-line grid">
+                <p className='title-search'>Google Search: </p>
                 <input
                     onChange={onSearch}
                     type="text" name='title'
                     placeholder='Book name' />
-                <button>Reset</button>
-            {isLoading && <div>Loading....</div>}
+                <button className="btn-reset">Reset</button>
+            </section>
+            {isLoading && <div className="load">Loading....</div>}
             {booksList && booksList.length && <SearchBooksList booksList={booksList} onSave={onSave} />}
         </section>
     )

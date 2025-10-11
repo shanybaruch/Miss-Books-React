@@ -1,12 +1,9 @@
 import { utilService } from './util.service.js'
 import { storageService } from './async-storage.service.js'
-import axios from 'axios'
 
 const BOOK_KEY = 'bookDB'
 const CACHE_STORAGE_KEY = 'googleBooksCache'
 let gCache = utilService.loadFromStorage(CACHE_STORAGE_KEY) || {}
-
-console.log('axios is', axios)
 
 _createBooks()
 
@@ -213,12 +210,11 @@ function getGoogleBooks(bookName) {
 
     const url = `https://www.googleapis.com/books/v1/volumes?printType=books&q=${bookName}`
 
-    return axios.get(url)
-        .then(res => {
-            console.log({ res });
-            const data = res.data.items
-            console.log('data from network...', data)
-            const books = _formatGoogleBooks(data)
+    return fetch(url)
+        .then(res => res.json())
+        .then(data => {
+            // console.log('data from network...', data.items)
+            const books = _formatGoogleBooks(data.items)
             gCache[bookName] = books
             utilService.saveToStorage(CACHE_STORAGE_KEY, gCache)
             return books
@@ -226,20 +222,25 @@ function getGoogleBooks(bookName) {
 }
 
 function _formatGoogleBooks(googleBooks) {
+    // console.log(googleBooks);
+
     return googleBooks.map(googleBook => {
         const { volumeInfo } = googleBook
 
-        let bookPublishedYear = (volumeInfo.publishedDate.length > 4) ? volumeInfo.publishedDate.slice(0, 4) : volumeInfo.publishedDate
+        let bookPublishedYear = '0000'
 
+        if (volumeInfo.publishedDate && typeof volumeInfo.publishedDate === 'string') {
+            bookPublishedYear = volumeInfo.publishedDate.slice(0, 4)
+        }
         const book = {
             id: googleBook.id,
-            title: volumeInfo.title,
-            description: volumeInfo.description,
-            pageCount: volumeInfo.pageCount,
-            authors: volumeInfo.authors,
-            categories: volumeInfo.categories,
+            title: volumeInfo.title || 'No Title',
+            description: volumeInfo.description || 'No Description',
+            pageCount: volumeInfo.pageCount || 0,
+            authors: volumeInfo.authors || ['Unknown Author'],
+            categories: volumeInfo.categories || ['Uncategorized'],
             publishedDate: +bookPublishedYear,
-            language: volumeInfo.language,
+            language: volumeInfo.language || 'en',
             listPrice: {
                 amount: utilService.getRandomIntInclusive(80, 500),
                 currencyCode: "EUR",
@@ -247,6 +248,7 @@ function _formatGoogleBooks(googleBooks) {
             },
             reviews: []
         }
+
         if (volumeInfo.imageLinks) book.thumbnail = volumeInfo.imageLinks.thumbnail
         return book
     })

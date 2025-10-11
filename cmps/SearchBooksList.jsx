@@ -1,10 +1,10 @@
 export function SearchBooksList({ booksList, onSave }) {
     return (
-        <ul className='google-search-list'>
+        <ul className='search-books-list grid'>
             {booksList.map(book =>
                 <li key={book.id}>
+                    <button className="btn-add-book" onClick={() => onSave(book)}>+</button>
                     <span>{book.title}</span>
-                    <button onClick={() => onSave(book)}>+</button>
                 </li>)}
         </ul>
     )
