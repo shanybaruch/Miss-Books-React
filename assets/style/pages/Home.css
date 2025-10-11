@@ -2,17 +2,17 @@
     .welcome {
         margin-top: 1.5em;
         /* text-align: center; */
-        font-size: 3em;
-        font-weight: 200;
+        font-size: 2.2em;
+        font-weight: 100;
         width: max-content;
         padding-inline: 1em;
-        border-inline: 2px solid var(--clr1);
+        /* border-inline: 2px solid var(--clr1); */
     }
 
     .title-logo {
         /* text-align: center; */
-        font-size: 5em;
-        font-weight: 200;
+        font-size: 4.5em;
+        font-weight: 700;
         margin: auto;
         width: max-content;
         padding-inline: .6em;

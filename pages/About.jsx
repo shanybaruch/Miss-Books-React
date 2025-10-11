@@ -3,8 +3,8 @@ const { Link, Outlet } = ReactRouterDOM
 export function About() {
     return (
         <section className="about">
-            <h1>About Us</h1>
-            <p>
+            <p className="title montserrat-class">About Us</p>
+            <p className="montserrat-class">
                 Lorem ipsum dolor sit, amet consectetur adipisicing
                 elit. Dolores provident iusto, inventore voluptatibus
                 sunt, minima explicabo minus tenetur voluptas sint

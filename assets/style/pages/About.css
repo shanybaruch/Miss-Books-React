@@ -4,17 +4,31 @@
     border-inline: 2px solid var(--clr1);
     width: 75vw;
 
+    .title {
+        text-align: center;
+        font-size: 1.5rem;
+    }
+
     a {
         display: block;
         text-transform: uppercase;
     }
+    
     a:hover {
         animation: jello;
         animation-duration: 2s;
     }
-
+    
     p {
-        font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        font-weight: 100;
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
         padding-bottom: .5em;
+    }
+
+    .montserrat-class {
+        font-family: "Montserrat", sans-serif;
+        font-optical-sizing: auto;
+        font-weight: 100;
+        font-style: normal;
     }
 }
