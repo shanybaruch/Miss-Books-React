@@ -3,16 +3,20 @@ import { BookList } from "../cmps/BookList.jsx"
 import { BookDetails } from "./BookDetails.jsx"
 import { BookFilter } from "../cmps/BookFilter.jsx"
 import { utilService } from "../services/util.service.js"
+import { cleanObject } from "../services/util.service.js"
 
 const { useState, useEffect, Fragment } = React
-const { Link } = ReactRouterDOM
+const { Link, useSearchParams } = ReactRouterDOM
 
 export function BookIndex() {
 
     const [books, setBooks] = useState(null)
-    const [filterBy, setFilterBy] = useState(bookService.getDefaultFilter())
+    const [searchParams, setSearchParams] = useSearchParams()    
+    const [filterBy, setFilterBy] = useState(bookService.getFilterFromParams(searchParams))
 
     useEffect(() => {
+        console.log('filterby: ', filterBy);
+        setSearchParams(cleanObject(filterBy))
         loadBooks()
     }, [filterBy])
 
@@ -41,12 +45,14 @@ export function BookIndex() {
     }
 
 
-    if (!books) return <h1>Loading..</h1>
+    if (!books) return <p>Loading..</p>
     return (
         <section className="book-index">
             <BookFilter onSetFilterBy={onSetFilterBy} defaultFilter={filterBy} />
             <section>
-                <button className="edit-link"><Link to="/book/edit">Add book</Link></button>
+                <button className="edit-link">
+                    <Link to="/book/edit">Add book</Link>
+                </button>
             </section>
             <BookList
                 books={books}

@@ -24,6 +24,7 @@ export const bookService = {
     addGoogleBook,
     getEmptyReview,
     getFilterFromParams,
+    getFilterFromSearchParams,
 
 }
 
@@ -221,6 +222,15 @@ function getGoogleBooks(bookName) {
         })
 }
 
+function getFilterFromSearchParams(searchParams) {
+    const title = searchParams.get('title') || ''
+    const maxPrice = searchParams.get('maxPrice') || ''
+    return {
+        title,
+        maxPrice
+    }
+}
+
 function _formatGoogleBooks(googleBooks) {
     // console.log(googleBooks);
 
@@ -272,7 +282,7 @@ function getFilterFromParams(searchParams = {}) {
     const defaultFilter = getDefaultFilter()
     return {
         title: searchParams.get('title') || defaultFilter.title,
-        minPrice: searchParams.get('maxPrice') || defaultFilter.minPrice,
+        maxPrice: searchParams.get('maxPrice') || defaultFilter.maxPrice,
 
     }
 }

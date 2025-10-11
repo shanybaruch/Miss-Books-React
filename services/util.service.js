@@ -78,6 +78,17 @@ function animateCSS(el, animation = 'bounce', options = {}) {
     })
 }
 
+export function cleanObject(obj) {
+    const newObj = {}
+    for (const key in obj) {
+        const value = obj[key]
+        if (value) {
+            newObj[key] = value
+        }
+    }
+    return newObj
+}
+
 function debounce(callback, wait) {
     let timeoutId = null;
     return (...args) => {
