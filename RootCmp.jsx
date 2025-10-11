@@ -1,8 +1,6 @@
 const Router = ReactRouterDOM.HashRouter
 const { Routes, Route, Navigate } = ReactRouterDOM
 
-const { useState } = React
-
 import { About } from './pages/About.jsx'
 import { Home } from './pages/Home.jsx'
 import { BookIndex } from './pages/BookIndex.jsx'

@@ -3,6 +3,17 @@
     padding-inline: 2em;
     border-inline: 2px solid var(--clr1);
     width: 75vw;
+
+    a {
+        display: block;
+        text-transform: uppercase;
+        
+        :active {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            /* font-weight: 900; */
+        }
+    }
+
     p {
         font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
         padding-bottom: .5em;
