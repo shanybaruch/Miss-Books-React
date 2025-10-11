@@ -1,7 +1,9 @@
-// import { StarRating } from "./dynamic-inputs/StarRating.jsx"
+import { StarRating } from "./dynamic-inputs/StarRating.jsx"
 
 
 export function ReviewPreview({ review, onRemoveReview }) {
+    console.log({ review });
+    
     return (
         <section className='review-preview'>
             <section className="grid">
@@ -14,8 +16,9 @@ export function ReviewPreview({ review, onRemoveReview }) {
             </section>
 
             <section className="rate">
+                <p className="rating">{`${review.rating} / 5`}</p>
                 {/* {review.rating !== 0 && <h4><StarRating rating={review.rating} /></h4>} */}
-                {review.selected !== 0 && <p>Book rate: {review.selected}/5</p>}
+                {/* {review.selected !== 0 && <p>Book rate: {review.selected}/5</p>} */}
             </section>
 
             <button className="btn-remove" onClick={() => onRemoveReview(review.id)}>x</button>

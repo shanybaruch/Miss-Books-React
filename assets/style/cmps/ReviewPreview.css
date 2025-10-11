@@ -4,18 +4,33 @@
     border-left: 2px solid var(--clr-dark);
     padding-left: 1em;
     width: max-content;
+    margin-bottom: 1em;
 
     section {
         align-items: center;
         justify-content: start;
     }
+
     .name {
-        font-weight: 100;
+        /* font-weight: 100; */
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     }
 
     .date {
+        font-size: .7rem;
+        margin-bottom: .1em;
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    .txt {
+        font-size: .8rem;
+    }
+
+    .rate .rating {
+        font-size: .7rem;
+        font-weight: 100;
+        /* font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; */
+
     }
 
     .btn-remove {

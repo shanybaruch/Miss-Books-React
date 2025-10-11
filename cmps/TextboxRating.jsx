@@ -6,13 +6,15 @@ export function TextboxRating({ handleChange, txt }) {
     }
 
     return (
-        <textarea
+        <section className="textbox-rating">
+            <textarea
             name='txt'
             cols='50'
             rows='3'
             value={txt}
             onChange={(ev) => onSetTxt(ev.target.value)}
-        >
-        </textarea>
+            >
+            </textarea>
+        </section>
     )
 }

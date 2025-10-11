@@ -22,6 +22,8 @@ export function AddReview({ saveReview, toggleReview }) {
     function onAddReview(ev) {
         ev.preventDefault()
         saveReview(review)
+            console.log('Review saved:', review)
+
         toggleReview()
     }
 
@@ -32,6 +34,11 @@ export function AddReview({ saveReview, toggleReview }) {
 
     function onChangeCmpType(selecterType) {
         setCmpType(selecterType)
+    }
+
+    function onSetSelect(selectedValue) {
+        const target = { name: 'rating', value: +selectedValue };
+        handleChange({ target });
     }
 
 
@@ -69,14 +76,24 @@ export function AddReview({ saveReview, toggleReview }) {
                             onChange={handleChange}
                         />
                     </section>
+
+                    <div>
+                        <label htmlFor="rating">Rating: </label>
+                        <select value={rating} onChange={(ev) => onSetSelect(ev.target.value)}>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                        </select>
+                    </div>
+
                     <TextboxRating handleChange={handleChange} txt={txt} />
 
                     <button type="submit">Save</button>
 
                 </div>
             </form>
-
-
         </section>
     )
 }
