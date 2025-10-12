@@ -11,6 +11,7 @@ export function BookEdit() {
     const [bookToEdit, setBookToEdit] = useState(bookService.getEmptyBook())
     const [isLoading, setIsLoading] = useState(false)
     const [cmpType, setCmpType] = useState('select')
+    // const [ratingWay, setRatingWay] = useState()
 
     const navigate = useNavigate()
     const { bookId } = useParams()
@@ -108,7 +109,7 @@ export function BookEdit() {
     }
 
     let listPrice = bookToEdit.listPrice || { amount: '' }
-    console.log('book to edit: ', bookToEdit);
+    // console.log('book to edit: ', bookToEdit);
     const loadingClass = isLoading ? 'loading' : ''
 
     return (
@@ -137,15 +138,24 @@ export function BookEdit() {
                     id='pages' type="number" name='pageCount' />
 
                 <label htmlFor="rating">Rating:</label>
-                <select className="select-rating" value={cmpType} onChange={ev => setCmpType(ev.target.value)} name="rating" id="rating">
-                    <option name="rating-way" value="select">select</option>
-                    <option name="rating-way" value="textbox">textbox</option>
-                    <option name="rating-way" value="stars">stars</option>
-                </select>
-                <section className="dynamic-cmps">
-                    <DynamicCmp cmpType={cmpType} handleClick={handleRatingClick} />
+                <section className="radio-rating" value={cmpType} onChange={ev => setCmpType(ev.target.value)} name="rating" id="rating">
+                    <section className="flex">
+                        <input type="radio" name="rating" id="select" value="select" />
+                        <label htmlFor="select">Select</label>
+                    </section>
+                    <section className="flex">
+                        <input type="radio" name="rating" id="textbox" value="textbox" />
+                        <label htmlFor="textbox">Textbox</label>
+                    </section>
+                    {/* <section className="flex">
+                        <label htmlFor="stars">Stars</label>
+                        <input type="radio" name="rating" id="stars" value="stars" />
+                    </section> */}
                 </section>
-                
+                <section className="dynamic-cmps">
+                    <DynamicCmp cmpType={cmpType}  />
+                </section>
+
                 <button className="btn-save">Save</button>
             </form>
         </section>
@@ -154,9 +164,9 @@ export function BookEdit() {
 
 function DynamicCmp(props) {
     const dynamicCmpMap = {
-        select: <RateBySelect />,
-        textbox: <RateByTextbox />,
-        stars: <RateByStars />,
+        select: <RateBySelect {...props} />,
+        textbox: <RateByTextbox {...props}  />,
+        stars: <RateByStars {...props}  />,
     }
 
     return dynamicCmpMap[props.cmpType]

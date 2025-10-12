@@ -34,6 +34,12 @@
     .select-rating {
         grid-column: 3 / 4;
     }
+
+    .radio-rating {
+        display: flex;
+        gap: 1em;
+        grid-column: 3 / 4;
+    }
 }
 
 .book-edit form {
@@ -78,3 +84,12 @@ section .edit-link {
         color: var(--gray3);
     }
 }
+
+.rate-by-textbox .rating,
+.rate-by-stars,
+.rate-by-select .rating {
+    margin: 0;
+}
+ .dynamic-cmps {
+    grid-column: 3 / 4;
+ }
