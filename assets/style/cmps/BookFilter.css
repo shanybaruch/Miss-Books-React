@@ -7,11 +7,10 @@
     width: max-content;
     margin: auto;
     padding: .8em;
-    border-radius: 0.4em;
+    border-radius: 1em;
 }
 
 .book-filter>h2 {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-size: 1rem;
     font-weight: 100;
     margin-top: 0;
@@ -37,6 +36,7 @@
 
 .book-filter form button {
     align-self: center;
+    font-weight: 400;
     border-radius: 10em;
     height: 100%;
 }

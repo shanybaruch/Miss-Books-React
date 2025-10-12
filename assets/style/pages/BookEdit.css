@@ -5,9 +5,19 @@
     width: max-content;
     margin: auto;
 
+    .title {
+        font-weight: 400;
+        margin-top: .8em;
+    }
+
+    .title-search {
+        font-weight: 400;
+    }
+
     button {
         grid-column: 2 / 3;
 
+        font-weight: 600;
         border: 2px solid var(--clr-dark);
         margin-bottom: 1.4em;
 
@@ -15,6 +25,10 @@
             background-color: var(--clr-dark);
             color: var(--gray3);
         }
+    }
+
+    .btn-save {
+        border: 0;
     }
 
     .select-rating {
@@ -29,18 +43,16 @@
 
     /* align-items: center; */
 
-    
+
     font-size: 1rem;
     width: 100%;
     /* margin: auto; */
 
     label {
         grid-column: 1 / 2;
+
+        font-weight: 300;
         text-align: start;
-
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        font-weight: 100;
-
     }
 }
 
@@ -48,7 +60,7 @@
     grid-column: 3 / 4;
 
     width: 100%;
-    margin-bottom: 15px;
+    margin-bottom: 1rem;
 }
 
 .book-edit form.loading {

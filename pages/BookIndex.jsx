@@ -11,7 +11,7 @@ const { Link, useSearchParams } = ReactRouterDOM
 export function BookIndex() {
 
     const [books, setBooks] = useState(null)
-    const [searchParams, setSearchParams] = useSearchParams()    
+    const [searchParams, setSearchParams] = useSearchParams()
     const [filterBy, setFilterBy] = useState(bookService.getFilterFromParams(searchParams))
 
     useEffect(() => {
@@ -36,7 +36,7 @@ export function BookIndex() {
             })
             .catch(err => {
                 console.log('err:', err)
-                showErrorMsg('Cannot remove book - ',{bookId})
+                showErrorMsg('Cannot remove book - ', { bookId })
             })
     }
 
@@ -47,11 +47,9 @@ export function BookIndex() {
     if (!books) return <p>Loading..</p>
     return (
         <section className="book-index">
-            <BookFilter onSetFilterBy={onSetFilterBy} defaultFilter={filterBy} />
-            <section>
-                <button className="edit-link">
-                    <Link to="/book/edit">Add book</Link>
-                </button>
+            <section className="header grid">
+                <BookFilter onSetFilterBy={onSetFilterBy} defaultFilter={filterBy} />
+                <Link className="add-book" to="/book/edit">Add book</Link>
             </section>
             <BookList
                 books={books}

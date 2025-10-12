@@ -1,5 +1,28 @@
 .book-index {
-    h2:first-child {
-        /* text-align: center; */
+    .header {
+        grid-template-columns: repeat(4, 1fr);
+        grid-auto-flow: column;
+        gap: .5em;
+        justify-items: center;
+
+        .book-filter {
+            grid-column: 2 / 3;
+        }
+
+        .add-book {
+            grid-column: 3 / 4;
+            align-self: center;
+            justify-self: start;
+
+            padding: .7rem 1rem;
+            text-align: center;
+            background-color: var(--clr2);
+            border-radius: 9em;
+
+        }
+
+        a {
+            font-weight: 200;
+        }
     }
 }

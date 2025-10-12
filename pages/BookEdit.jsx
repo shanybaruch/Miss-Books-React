@@ -113,7 +113,7 @@ export function BookEdit() {
 
     return (
         <section className="book-edit">
-            <h1>{bookId ? 'Edit' : 'Add'} Book</h1>
+            <h1 className="title">{bookId ? 'Edit' : 'Add'} Book</h1>
             {!bookId && <AddBook />}
             <form className={loadingClass} onSubmit={onSaveBook}>
                 <label htmlFor="title">Title:</label>
@@ -146,7 +146,7 @@ export function BookEdit() {
                     <DynamicCmp cmpType={cmpType} handleClick={handleRatingClick} />
                 </section>
 
-                <button>Save</button>
+                <button className="btn-save">Save</button>
             </form>
         </section>
     )

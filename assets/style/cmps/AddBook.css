@@ -17,9 +17,14 @@
         .btn-reset {
             grid-column: 3 / 4;
 
+            border: 0;
             width: max-content;
             margin: 0;
         }
+    }
+
+    .btn-save {
+        border: 0;
     }
 
     .load {
