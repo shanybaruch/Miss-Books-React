@@ -145,7 +145,7 @@ export function BookEdit() {
                 <section className="dynamic-cmps">
                     <DynamicCmp cmpType={cmpType} handleClick={handleRatingClick} />
                 </section>
-
+                
                 <button className="btn-save">Save</button>
             </form>
         </section>
