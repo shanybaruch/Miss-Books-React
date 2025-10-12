@@ -15,7 +15,8 @@ body {
   margin: 0;
   color: var(--gray3);
   transition: .5s;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 100;
 }
 
 h1,
@@ -25,8 +26,15 @@ h4,
 h5,
 h6 {
   margin: 0;
-  font-family: 'Edu VIC WA NT Beginner', cursive;
-  font-weight: 400;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+}
+
+input,
+textarea,
+select {
+  font-family: 'Montserrat', sans-serif;
+  color: var(--gray2);
 }
 
 p {
@@ -50,7 +58,7 @@ ul {
 
 .flash-msg {
   width: max-content;
-  background-color: rgb(255, 215, 255);
+  background-color: var(--clr-dark);
   padding: 5px;
   border-radius: 5px;
   transition: opacity 0.5s;
@@ -58,6 +66,7 @@ ul {
 }
 
 button {
+  font-family: 'Montserrat', sans-serif;
   cursor: pointer;
   max-width: 100%;
 }

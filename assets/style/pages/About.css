@@ -7,26 +7,26 @@
     .title {
         text-align: center;
         font-size: 1.5rem;
+        font-weight: 800;
     }
 
     a {
         display: block;
+        font-weight: 700;
         text-transform: uppercase;
     }
-    
+
     a:hover {
         animation: jello;
         animation-duration: 2s;
     }
-    
+
     p {
         font-weight: 100;
-        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
         padding-bottom: .5em;
     }
 
     .montserrat-class {
-        font-family: "Montserrat", sans-serif;
         font-optical-sizing: auto;
         font-weight: 100;
         font-style: normal;

@@ -1,8 +1,6 @@
 import { ReviewPreview } from "../cmps/ReviewPreview.jsx"
 
-export function ReviewList({ reviews, onRemoveReview }) {
-    // console.log('!reviews.length:', reviews.length)
-    
+export function ReviewList({ reviews, onRemoveReview }) {    
 
     return (
         <div className="review-list">

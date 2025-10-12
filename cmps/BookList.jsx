@@ -10,10 +10,10 @@ export function BookList({ books, onRemoveBook }) {
                     <li key={book.id}>
                         {book.listPrice.isOnSale && <h4 className='sale'>Sale</h4>}
                         <BookPreview book={book} />
-                        <section className='btns flex'>
-                            <button className="" onClick={ev => onRemoveBook(book.id, ev)}>Remove</button>
-                            <button className=''><Link to={`/book/${book.id}`}>Details</Link></button>
-                            <button className=''><Link to={`/book/edit/${book.id}`}>Edit</Link></button>
+                        <section className='btns'>
+                            <a className="btn btn-remove" onClick={ev => onRemoveBook(book.id, ev)}>Remove</a>
+                            <Link className='btn btn-details' to={`/book/${book.id}`}>Details</Link>
+                            <Link className='btn btn-edit' to={`/book/edit/${book.id}`}>Edit</Link>
                         </section>
                     </li>
                 )}

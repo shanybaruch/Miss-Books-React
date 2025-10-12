@@ -13,7 +13,7 @@ export function About() {
             </p>
             <nav>
                 <Link to='/about/Team'><i className="team fa-solid fa-people-group"></i> Team</Link>
-                <Link to='/about/Goal'><i className="goal fa-brands fa-golang"></i>Goal</Link>
+                <Link to='/about/Goal'><i className="goal fa-brands fa-golang"></i> Goal</Link>
             </nav>
             <Outlet />
         </section>

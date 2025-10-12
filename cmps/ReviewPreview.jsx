@@ -3,7 +3,9 @@ import { StarRating } from "./dynamic-inputs/StarRating.jsx"
 
 export function ReviewPreview({ review, onRemoveReview }) {
     // console.log({ review });
-    
+
+    //not working
+    // if (!review) return <p>Loading..</p>
     return (
         <section className='review-preview'>
             <section className="grid">

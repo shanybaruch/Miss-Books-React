@@ -9,8 +9,8 @@
 .book-list {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
-    gap: 30px;
     justify-content: center;
+    gap: 30px;
 
     transition: .4s;
     margin-top: 1.6em;
@@ -28,70 +28,84 @@
 
     padding-bottom: 5px;
     background-color: var(--clr2);
-    border-radius: .2em;
+    border-radius: 1em;
     padding: 0;
+
+    &:hover {
+        transition: .4s;
+    }
+
+    &:hover::before {
+        content: "";
+        position: absolute;
+
+        background-color: var(--gray3);
+        width: 100%;
+        height: 100%;
+        font-weight: bold;
+        opacity: .8;
+        pointer-events: none;
+
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+
+        border-radius: 1em;
+    }
+
+    .title {
+        margin-top: .5em;
+        font-weight: 400;
+    }
 
     .sale {
         position: absolute;
-        left: -0.5em;
+        left: -1em;
         top: -0.5em;
 
-        background-color: var(--clr-red);
-        /* background-color: red; */
-        box-shadow: 0 5px 10px var(--clr-light);
-        color: var(--clr-light);
+        color: var(--gray3);
         border-radius: 50%;
         padding: 0.4em;
-        font-family: cursive;
+        font-weight: 600;
     }
 
     &:hover .btn-details,
-    &:hover .btn-remove {
+    &:hover .btn-remove,
+    &:hover .btn-edit {
         opacity: 1;
         pointer-events: auto;
     }
 
-    .btn-details,
-    .btn-remove {
-        font-size: 1rem;
-        color: var(--gray3);
-        padding: 0;
+    .btn {
+        /* padding: 0; */
+        margin: .5em;
+        font-size: .9rem;
+        font-weight: 100;
+        font-family: 'Montserrat', sans-serif;
         background-color: inherit;
+        color: var(--gray1);
+
 
         opacity: 0;
         pointer-events: none;
         transition: 0.5s;
 
-        position: absolute;
-        bottom: -0.4em;
-
         &:hover {
-            transition: 0.3s;
+            color: var(--gray1);
             scale: 1.2;
-            color: inherit;
+            font-weight: 600;
+            transition: 0.4s;
         }
-
-    }
-
-    .btn-remove {
-        right: -0.5em;
-        /* right: 3em; */
-    }
-
-    .btn-details {
-        /* left: -0.4em; */
-        right: 1em;
-        background-color: aqua;
     }
 
     .btns {
-        align-items: center;
-        justify-content: center;
-        width: 100%;
+        display: grid;
+        grid-template-rows: repeat(3, auto);
+        justify-items: center;
 
-        button {
-            margin: 0.2em;
-        }
+        position: absolute;
+        text-align: center;
+        width: 100%;
     }
 }
 
@@ -99,11 +113,11 @@
     opacity: 0.7;
 }
 
-li:has(button:hover)>button:not(:hover) {
+/* li:has(button:hover)>button:not(:hover) {
     scale: 0.9;
 }
 
 .book-list:has(li:hover)>li:not(:hover) {
     scale: 0.9;
     opacity: .6;
-}
+} */
